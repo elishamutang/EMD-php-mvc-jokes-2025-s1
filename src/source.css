@@ -120,7 +120,8 @@
     /* Editor & Description display areas */
     .ck-content h1, .description h1 {
         @apply description_h1;
-        @apply text-gray-800;
+        @apply text-4xl;
+        @apply text-prussianblue-500;
     }
 
     .ck-content h2, .description h2 {
@@ -135,7 +136,7 @@
         @apply description_a;
     }
 
-.ck-content p, .description p {
+    .ck-content p, .description p {
         @apply my-2;
     }
 
@@ -146,6 +147,7 @@
     .ck-content ul li, .description ul li {
         @apply list-disc list-item ml-2;
     }
+
     .ck-content ol li, .description ol li {
         @apply list-decimal list-item ml-2;
     }
