@@ -8,7 +8,7 @@
  *
  * Filename:        Authorise.php
  * Location:
- * Project:         SaaS-Vanilla-MVC
+ * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
  * Date Created:    20/08/2024
  *
  * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
@@ -36,7 +36,9 @@ class Authorise
         if ($role === 'auth' && !$this->isAuthenticated()) {
             return redirect('/auth/login');
         }
+        return false;
     }
+
 
     /**
      * Check if user is authenticated

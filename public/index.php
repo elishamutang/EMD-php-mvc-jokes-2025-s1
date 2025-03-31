@@ -1,14 +1,17 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Public facing index page
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Performs teh bootstrapping of the application by
+ * - autoloading the classes
+ * - requiring the helper functions
+ * - creating a list of routes
+ * - parsing the URI 
+ * - calling the relevant method based on the route requested
  *
  * Filename:        index.php
- * Location:        ${FILE_LOCATION}
- * Project:         SaaS-FED-Notes
+ * Location:        public/
+ * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
  * Date Created:    20/08/2024
  *
  * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>

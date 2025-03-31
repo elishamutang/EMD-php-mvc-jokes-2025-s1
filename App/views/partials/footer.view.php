@@ -4,7 +4,7 @@
  *
  * Filename:        footer.view.php
  * Location:        App/views/partials
- * Project:         SaaS-FED-Notes
+ * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
  * Date Created:    20/08/2024
  *
  * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
@@ -46,8 +46,8 @@
             </a>
             <p class="my-1 block">
                 Tutorials:
-                <a href="https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-07" class="text-xs">00-04</a>,
-                <a href="https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-08" class="text-xs">05-10</a>
+                <a href="https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-07" class="text-xs">00-04</a>,
+                <a href="https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-08" class="text-xs">05-10</a>
                 <span class="text-prussianblue-600 text-xs p-1">New</span>
             </p>
 
@@ -113,7 +113,7 @@
                 <a href="https://www.traversymedia.com/php-from-scratch"
                    class="text-gray-500 hover:text-white underline underline-offset-2">PHP From Scratch</a> course, and
                 the subsequent
-                <a href="https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-07"
+                <a href="https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-07"
                    class="text-gray-500 hover:text-white underline underline-offset-2">supporting tutorial</a>
                 by <a href="https://adygcode.github.io"
                       class="text-gray-500 hover:text-white">Adrian Gould</a> &

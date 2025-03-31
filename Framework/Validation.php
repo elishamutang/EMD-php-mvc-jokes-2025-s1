@@ -1,14 +1,15 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Validation class
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Provides basic validation of data including
+ * - string
+ * - email
+ * - match two items of data
  *
  * Filename:        Validation.php
  * Location:
- * Project:         SaaS-Vanilla-MVC
+ * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
  * Date Created:    20/08/2024
  *
  * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
@@ -38,8 +39,13 @@ class Validation
         return false;
     }
 
+
     /**
      * Validate email address
+     *
+     * Uses teh PHP filter_var function with the FILTER_VALIDATE_EMAIL
+     * option. It is a bare essentials test that the email contains
+     * the correct parts (MAILBOX@FQDN)
      *
      * @param string $value
      * @return mixed
@@ -50,6 +56,7 @@ class Validation
 
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
+
 
     /**
      * Match a value against another

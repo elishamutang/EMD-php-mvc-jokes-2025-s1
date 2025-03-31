@@ -1,14 +1,13 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Error Controller Class
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Provides the handling of 404, 403 and possibly expand to
+ * other HTTP response codes.
  *
  * Filename:        ErrorController.php
- * Location:
- * Project:         SaaS-Vanilla-MVC
+ * Location:        App/controllers/
+ * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
  * Date Created:    20/08/2024
  *
  * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
@@ -17,12 +16,6 @@
 
 namespace App\Controllers;
 
-/**
- * Error Controller Class
- *
- * Provides static methods for the display of common
- * HTTP error codes including 404 and 403.
- */
 class ErrorController
 {
     /**

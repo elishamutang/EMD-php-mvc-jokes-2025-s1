@@ -1,14 +1,13 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Add Routes to Router
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Adds routes to the $router (instantiated in public/index.php)
+ * to allow the calling of the appropriate method
  *
  * Filename:        routes.php
- * Location:        ${FILE_LOCATION}
- * Project:         SaaS-Vanilla-MVC
+ * Location:        /
+ * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
  * Date Created:    20/08/2024
  *
  * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>

@@ -22,11 +22,16 @@ use PDOException;
 class Database
 {
     /**
-     * Connection Property
+     * Define Properties
+     */
+
+    /**
+     * Connection property
      *
      * @var PDO
      */
     public $conn;
+
 
     /**
      * Constructor for Database class
@@ -53,6 +58,7 @@ class Database
             throw new Exception("Database connection failed: {$e->getMessage()}");
         }
     }
+
 
     /**
      * Query the database

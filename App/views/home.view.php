@@ -4,7 +4,7 @@
  *
  * Filename:        home.view.php
  * Location:        /App/views
- * Project:         SaaS-Vanilla-MVC
+ * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
  * Date Created:    23/08/2024
  *
  * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
@@ -34,17 +34,17 @@ loadPartial('navigation');
             <dl class="flex flex-col">
                 <dt class="text-lg font-semibold ">Tutorial:</dt>
                 <dd class="ml-4">
-                    <a href="https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-07"
+                    <a href="https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-07"
                        class="hover:text-black">
                         <i class="fa fa-list inline-block mr-2 text-sm"></i>
-                        Parts 00 - 04: https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-07
+                        Parts 00 - 04: https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-07
                     </a>
                 </dd>
                 <dd class="ml-4">
-                    <a href="https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-08"
+                    <a href="https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-08"
                        class="hover:text-black">
                         <i class="fa fa-list inline-block mr-2 text-sm"></i>
-                        Parts 05 - 10: https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-07
+                        Parts 05 - 10: https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-07
                     </a>
                 </dd>
             </dl>

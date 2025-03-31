@@ -8,7 +8,7 @@
  *
  * Filename:        ProductController.php
  * Location:
- * Project:         SaaS-Vanilla-MVC
+ * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
  * Date Created:    22/08/2024
  *
  * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
