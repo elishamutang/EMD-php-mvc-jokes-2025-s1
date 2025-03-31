@@ -20,7 +20,7 @@ $authenticated = new Authorise();
     <h1 class="flex-0 w-32 text-xl p-4 ">
         <a href="#"
            class="py-4 px-4 -mx-4 -my-4 font-display font-bold rounded
-             text-prussianblue-500 hover:text-black
+             text-pink-500 hover:text-black
              hover:bg-prussianblue-500
                  transition ease-in-out duration-700">
             MVC
@@ -96,7 +96,7 @@ $authenticated = new Authorise();
                         <button class="pb-2 px-1 text-sm text-gray-400 hover:text-gray-300
                      border-0 border-b-2 hover:border-b-gray-500
                      transition ease-in-out duration-500">
-                            <i class="fa fa-user-plus"></i> Register
+                            <i class="fa fa-person-pregnant"></i> Register
                         </button>
                     </form>
                 </li>
