@@ -1,12 +1,20 @@
 -- ======================================> BEGIN SECTION <=====================================
 -- BEFORE COMMENCING:
 --
+-- - If the instructions in an assessment tell you to use a different database name then
+--   replace the XXX_SaaS_FED_YYYY_SN with the name as required. For example:
+--      Assessment DB: XXX_SaaS_FED_Jokes_YYYY_SN
+--
 -- - Replace all instances of YYYY with the current year
 --   For example, 2025
+--
 -- - Replace all instances of SN with S followed by the semester number
 --   For example, S1 for semester 1
+--
 -- - Replace ALL instances of XXX with your initials
 --   For example, AJG for Adrian Gould
+--
+-- --------------------------------------------------------------------------------------------
 --
 -- We have split the file into sections each surrounded with a BEGIN SECTION and END SECTION
 -- comment line. These sections may be copied and pasted into the SQL interface for the RDBMS
@@ -14,8 +22,8 @@
 --
 -- Alternatively, copy the whole file and paste into the SQL command interface provided for/by
 -- your GUI based RDBMS management software.
--- ======================================> BEGIN SECTION <=====================================
-
+--
+-- =======================================> END SECTION <======================================
 
 
 -- ======================================> BEGIN SECTION <=====================================
@@ -30,11 +38,10 @@
 -- --------------------------------------------------------------------------------------------
 -- Clean up existing database and user(s)
 -- --------------------------------------------------------------------------------------------
-DROP DATABASE IF EXISTS XXX_SaaS_FED_YYYY_SN;
+DROP DATABASE IF EXISTS `XXX_SaaS_FED_YYYY_SN`;
 DROP USER IF EXISTS 'XXX_SaaS_FED_YYYY_SN'@'localhost';
 DROP USER IF EXISTS 'XXX_SaaS_FED_YYYY_SN'@'127.0.0.1';
--- ====================================> END SECTION <=========================================
-
+-- =======================================> END SECTION <======================================
 
 
 -- ======================================> BEGIN SECTION <=====================================
@@ -48,7 +55,7 @@ DROP USER IF EXISTS 'XXX_SaaS_FED_YYYY_SN'@'127.0.0.1';
 -- --------------------------------------------------------------------------------------------
 -- Create Database named 'XXX_SaaS_FED_YYYY_SN'
 -- --------------------------------------------------------------------------------------------
-CREATE DATABASE IF NOT EXISTS XXX_SaaS_FED_YYYY_SN;
+CREATE DATABASE IF NOT EXISTS `XXX_SaaS_FED_YYYY_SN`;
 
 -- --------------------------------------------------------------------------------------------
 -- Create User & Grant Permissions
@@ -81,8 +88,7 @@ GRANT ALL PRIVILEGES
 -- Apply the user's privileges.
 -- --------------------------------------------------------------------------------------------
 FLUSH PRIVILEGES;
--- ====================================> END SECTION <=========================================
-
+-- =======================================> END SECTION <======================================
 
 
 -- ======================================> BEGIN SECTION <=====================================
@@ -94,9 +100,9 @@ FLUSH PRIVILEGES;
 -- --------------------------------------------------------------------------------------------
 
 -- --------------------------------------------------------------------------------------------
--- Tell MySQL to use the XXX_SaaS_FED_YYYY_SN database for commands.
+-- Tell MySQL to use the  `XXX_SaaS_FED_YYYY_SN` database for commands.
 -- --------------------------------------------------------------------------------------------
-USE XXX_SaaS_FED_YYYY_SN;
+USE `XXX_SaaS_FED_YYYY_SN`;
 
 -- --------------------------------------------------------------------------------------------
 -- Remove any existing Users table
@@ -119,12 +125,11 @@ CREATE TABLE IF NOT EXISTS `XXX_SaaS_FED_YYYY_SN`.`users`
 
     PRIMARY KEY (`id`)
 
-    ) ENGINE = InnoDB
-    AUTO_INCREMENT = 7
-    DEFAULT CHARSET = utf8mb4
-    COLLATE = utf8mb4_general_ci;
--- ====================================> END SECTION <=========================================
-
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 7
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_general_ci;
+-- =======================================> END SECTION <======================================
 
 
 -- ======================================> BEGIN SECTION <=====================================
@@ -134,9 +139,9 @@ CREATE TABLE IF NOT EXISTS `XXX_SaaS_FED_YYYY_SN`.`users`
 -- --------------------------------------------------------------------------------------------
 
 -- --------------------------------------------------------------------------------------------
--- Tell MySQL to use the XXX_SaaS_FED_YYYY_SN database for commands.
+-- Tell MySQL to use the  `XXX_SaaS_FED_YYYY_SN` database for commands.
 -- --------------------------------------------------------------------------------------------
-USE XXX_SaaS_FED_YYYY_SN;
+USE `XXX_SaaS_FED_YYYY_SN`;
 
 -- --------------------------------------------------------------------------------------------
 -- Remove any existing Products table
@@ -149,23 +154,23 @@ DROP TABLE IF EXISTS `XXX_SaaS_FED_YYYY_SN`.`products`;
 CREATE TABLE IF NOT EXISTS `XXX_SaaS_FED_YYYY_SN`.`products`
 (
     `id`          bigint unsigned NOT NULL AUTO_INCREMENT,
-    `user_id`     bigint unsigned          DEFAULT 10,
+    `user_id`     bigint unsigned      DEFAULT 10,
     `name`        varchar(255)    NOT NULL,
     `description` text,
-    `price`       int                      DEFAULT NULL,
-    `created_at`  timestamp       NULL     DEFAULT CURRENT_TIMESTAMP,
+    `price`       int                  DEFAULT NULL,
+    `created_at`  timestamp       NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY (`id`)
 
-    ) ENGINE = InnoDB
-    AUTO_INCREMENT = 21
-    DEFAULT CHARSET = utf8mb4
-    COLLATE = utf8mb4_general_ci;
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 21
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------------------------------------------
--- Tell MySQL to use the XXX_SaaS_FED_YYYY_SN database for commands.
+-- Tell MySQL to use the  `XXX_SaaS_FED_YYYY_SN` database for commands.
 -- --------------------------------------------------------------------------------------------
-USE XXX_SaaS_FED_YYYY_SN;
+USE `XXX_SaaS_FED_YYYY_SN`;
 
 -- --------------------------------------------------------------------------------------------
 -- Remove any existing Categories table
@@ -175,13 +180,13 @@ DROP TABLE IF EXISTS `XXX_SaaS_FED_YYYY_SN`.`categories`;
 -- --------------------------------------------------------------------------------------------
 -- Create the Categories table structure
 -- --------------------------------------------------------------------------------------------
-CREATE TABLE `xxx_php_mvc_jokes_yyyy_sn`.`categories`
+CREATE TABLE `XXX_SaaS_FED_YYYY_SN`.`categories`
 (
-    `id`         BIGINT         UNSIGNED    AUTO_INCREMENT,
-    `name`       VARCHAR(64)    NOT NULL    DEFAULT 'Unknown',
-    `user_id`    BIGINT         UNSIGNED    DEFAULT 10,
-    `created_at` DATETIME       NOT NULL    DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` DATETIME       NULL        DEFAULT NULL,
+    `id`         BIGINT UNSIGNED AUTO_INCREMENT,
+    `name`       VARCHAR(64) NOT NULL DEFAULT 'Unknown',
+    `user_id`    BIGINT UNSIGNED      DEFAULT 10,
+    `created_at` DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` DATETIME    NULL     DEFAULT NULL,
 
     PRIMARY KEY (`id`),
     UNIQUE `category_name_unique` (`name`)
@@ -191,9 +196,9 @@ CREATE TABLE `xxx_php_mvc_jokes_yyyy_sn`.`categories`
   COLLATE utf8mb4_general_ci;
 
 -- --------------------------------------------------------------------------------------------
--- Tell MySQL to use the XXX_SaaS_FED_YYYY_SN database for commands.
+-- Tell MySQL to use the  `XXX_SaaS_FED_YYYY_SN` database for commands.
 -- --------------------------------------------------------------------------------------------
-USE XXX_SaaS_FED_YYYY_SN;
+USE `XXX_SaaS_FED_YYYY_SN`;
 
 -- --------------------------------------------------------------------------------------------
 -- Remove any existing Jokes table
@@ -203,7 +208,7 @@ DROP TABLE IF EXISTS `XXX_SaaS_FED_YYYY_SN`.`jokes`;
 -- --------------------------------------------------------------------------------------------
 -- Create the Jokes table structure
 -- --------------------------------------------------------------------------------------------
-CREATE TABLE `xxx_php_mvc_jokes_yyyy_sn`.`jokes`
+CREATE TABLE `XXX_SaaS_FED_YYYY_SN`.`jokes`
 (
     `id`          BIGINT UNSIGNED AUTO_INCREMENT,
     `title`       VARCHAR(128) NOT NULL,
@@ -221,15 +226,13 @@ CREATE TABLE `xxx_php_mvc_jokes_yyyy_sn`.`jokes`
 ) ENGINE = InnoDB
   CHARSET = utf8mb4
   COLLATE utf8mb4_general_ci;
--- ====================================> END SECTION <=========================================
-
+-- =======================================> END SECTION <======================================
 
 
 -- ======================================> BEGIN SECTION <=====================================
 -- SEEDING THE DATABASE
 -- Seeders are used to add data to initialise the database tables
--- ====================================> END SECTION <=========================================
-
+-- =======================================> END SECTION <======================================
 
 
 -- ======================================> BEGIN SECTION <=====================================
@@ -238,9 +241,9 @@ CREATE TABLE `xxx_php_mvc_jokes_yyyy_sn`.`jokes`
 -- --------------------------------------------------------------------------------------------
 
 -- --------------------------------------------------------------------------------------------
--- Tell MySQL to use the XXX_SaaS_FED_YYYY_SN database for commands.
+-- Tell MySQL to use the  `XXX_SaaS_FED_YYYY_SN` database for commands.
 -- --------------------------------------------------------------------------------------------
-USE XXX_SaaS_FED_YYYY_SN;
+USE `XXX_SaaS_FED_YYYY_SN`;
 
 -- --------------------------------------------------------------------------------------------
 -- Seed Users Table
@@ -269,8 +272,7 @@ VALUES (100, 'John Doe', 'user1@example.com',
        (102, 'Steve Smith', 'user3@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
         'Adelaide', 'SA', 'Australia', '2024-08-20 17:59:13');
--- ====================================> END SECTION <=========================================
-
+-- =======================================> END SECTION <======================================
 
 
 -- ======================================> BEGIN SECTION <=====================================
@@ -333,13 +335,13 @@ VALUES (40380, 20, 'Sheep BrickHeadz',
 -- Seed Categories Table
 -- --------------------------------------------------------------------------------------------
 
-INSERT INTO `xxx_php_mvc_jokes_yyyy_sn`.`categories`(`id`, `name`, `created_at`)
+INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`categories`(`id`, `name`, `created_at`)
 VALUES (1, 'unknown', '1970-01-01 00:00:01');
 
-INSERT INTO `xxx_php_mvc_jokes_yyyy_sn`.`categories`(`id`, `name`, `created_at`)
+INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`categories`(`id`, `name`, `created_at`)
 VALUES (11, 'dad', '1970-01-01 00:00:01');
 
-INSERT INTO `xxx_php_mvc_jokes_yyyy_sn`.`categories`(`id`, `name`, `created_at`)
+INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`categories`(`id`, `name`, `created_at`)
 VALUES (9, 'geek', '1970-01-01 00:00:02'),
        (10, 'programmer', '1970-01-01 00:00:02'),
        (2, 'web', '1970-01-01 00:00:02'),
@@ -355,7 +357,7 @@ VALUES (9, 'geek', '1970-01-01 00:00:02'),
 -- Seed Jokes Table
 -- --------------------------------------------------------------------------------------------
 
-INSERT INTO `xxx_php_mvc_jokes_yyyy_sn`.`jokes`(`id`, `title`, `body`, `category_id`, `tags`,
+INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`jokes`(`id`, `title`, `body`, `category_id`, `tags`,
                                                 `author_id`, `created_at`, `updated_at`)
 VALUES (1, 'Skeleton Fight',
         '&lt;p&gt;Why don\'t skeletons fight each other?&lt;/p&gt;&lt;p&gt;They don\'t have the guts.&lt;/p&gt;',
@@ -376,6 +378,6 @@ VALUES (1, 'Skeleton Fight',
         '&lt;p&gt;I\'m thinking of starting a business installing elevators.&lt;/p&gt;&lt;p&gt;I hear it has its ups and downs.&lt;/p&gt;',
         11, 'work,puns', 104, now(), null);
 
--- ====================================> END SECTION <=========================================
+-- =======================================> END SECTION <======================================
 
 

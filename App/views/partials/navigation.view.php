@@ -76,6 +76,7 @@ $authenticated = new Authorise();
                     Link 1
                 </a>
             </li>
+
         </ul>
 
         <ul class="flex flex-row gap-4">

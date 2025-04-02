@@ -37,7 +37,15 @@ class HomeController
      */
     public function index()
     {
-        loadView('home', []);
+        $simpleRandomSixQuery = 'SELECT * FROM products ORDER BY RAND() LIMIT 0,1';
+
+        $products = $this->db->query($simpleRandomSixQuery)
+            ->fetchAll();
+
+
+        loadView('home', [
+            'product' => $products[0]
+        ]);
     }
 
     /*

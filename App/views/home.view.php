@@ -89,6 +89,22 @@ loadPartial('navigation');
 
         </section>
 
+        <section class="m-4 bg-zinc-200 text-zinc-700 p-8 rounded-lg shadow">
+            <dl class="flex flex-col">
+
+            <dt class="text-lg font-semibold">Featured Product</dt>
+                <dd class="ml-4">
+                    <a href="https://help.screencraft.net.au"
+                       class="hover:text-black">
+                        <i class="fa fa-home inline-block mr-2 text-sm"></i>
+                        <?= $product->name ?>
+                    </a>
+                </dd>
+
+            </dl>
+
+        </section>
+
     </article>
 </main>
 
