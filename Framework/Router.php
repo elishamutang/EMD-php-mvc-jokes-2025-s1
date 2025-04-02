@@ -22,7 +22,15 @@ use Framework\Middleware\Authorise;
 
 class Router
 {
+    /**
+     * Define properties
+     */
 
+    /**
+     * Routes property
+     *
+     * @var array
+     */
     protected $routes = [];
 
 
@@ -70,6 +78,7 @@ class Router
         $this->registerRoute('GET', $uri, $controller, $middleware);
     }
 
+
     /**
      * Add a POST route
      *
@@ -83,6 +92,7 @@ class Router
     {
         $this->registerRoute('POST', $uri, $controller, $middleware);
     }
+
 
     /**
      * Add a PUT route
@@ -98,6 +108,7 @@ class Router
         $this->registerRoute('PUT', $uri, $controller, $middleware);
     }
 
+
     /**
      * Add a DELETE route
      *
@@ -111,6 +122,7 @@ class Router
     {
         $this->registerRoute('DELETE', $uri, $controller, $middleware);
     }
+
 
     /**
      * Route the request

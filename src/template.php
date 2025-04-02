@@ -286,7 +286,7 @@
                 <a href="https://www.traversymedia.com/php-from-scratch"
                    class="text-zinc-500 hover:text-white underline underline-offset-2">PHP From Scratch</a> course, and
                 the subsequent
-                <a href="https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-07"
+                <a href="https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-07"
                    class="text-zinc-500 hover:text-white underline underline-offset-2">supporting tutorial</a>
                 by <a href="https://adygcode.github.io"
                       class="text-zinc-500 hover:text-white">Adrian Gould</a> &

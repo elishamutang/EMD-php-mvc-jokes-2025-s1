@@ -1,6 +1,6 @@
 <?php
 /**
- * Sessin Handling Class
+ * Session Handling Class
  *
  * Provides methods to handle sessions for authenticated users
  * along with flash messages and other session related functions.
@@ -31,6 +31,7 @@ class Session
         }
     }
 
+
     /**
      * Check if session key exists
      *
@@ -41,6 +42,7 @@ class Session
     {
         return isset($_SESSION[$key]);
     }
+
 
     /**
      * Clear all session data
@@ -105,6 +107,7 @@ class Session
     {
         self::set('flash_' . $key, $message);
     }
+
 
     /**
      * Get a flash message and unset

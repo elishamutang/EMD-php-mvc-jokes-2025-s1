@@ -44,7 +44,7 @@ learning the process of developing a micro-framework.
 
 This code is based on the [Workopia Project](https://github.com/bradtraversy/workopia-php)
 Micro-MVC Framework from the [PHP From Scratch course](https://www.traversymedia.com/php-from-scratch),
-and the subsequent [supporting tutorial](https://github.com/AdyGCode/SaaS-FED-Notes/tree/main/session-07)
+and the subsequent [supporting tutorial](https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN/tree/main/session-07)
 by [Adrian Gould](https://adygcode.github.io/) & [North Metropolitan TAFE](https://www.northmetrotafe.wa.edu.au/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

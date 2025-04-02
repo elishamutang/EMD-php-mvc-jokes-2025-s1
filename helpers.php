@@ -46,6 +46,7 @@ function loadView($name, $data = [])
     }
 }
 
+
 /**
  * Load a partial
  *
@@ -91,6 +92,7 @@ function inspect($value)
     echo '</pre>';
 }
 
+
 /**
  * Dump the values of one or more variables, objects or similar.
  *
@@ -121,6 +123,7 @@ function dd(): void
     die();
 }
 
+
 /**
  * Sanitize Data
  *
@@ -131,6 +134,7 @@ function sanitize($dirty)
 {
     return filter_var(trim($dirty), FILTER_SANITIZE_SPECIAL_CHARS);
 }
+
 
 /**
  * Redirect to a given url
@@ -161,6 +165,7 @@ if (!function_exists('htmlToMarkdown')) {
         return $converter->convert($html);
     }
 }
+
 
 /**
  * Convert Markdown to HTML
