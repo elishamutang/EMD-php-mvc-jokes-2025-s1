@@ -18,11 +18,13 @@ namespace Framework;
 use Exception;
 use PDO;
 use PDOException;
+use PDOStatement;
+use RuntimeException;
 
 class Database
 {
     /**
-     * Define Properties
+     * Property Definitions
      */
 
     /**
@@ -34,9 +36,14 @@ class Database
 
 
     /**
+     * Method Definitions
+     */
+
+    /**
      * Constructor for Database class
      *
      * @param array $config
+     * @return void
      * @throws Exception
      */
     public function __construct($config)
@@ -77,7 +84,7 @@ class Database
      * @param array $params []|[associative array of parameter names and values]
      *
      * @return PDOStatement
-     * @throws PDOException|Exception
+     * @throws PDOException|RuntimeException
      */
     public function query($query, $params = [])
     {
@@ -92,7 +99,7 @@ class Database
             $sth->execute();
             return $sth;
         } catch (PDOException $e) {
-            throw new Exception("Query failed to execute: {$e->getMessage()}");
+            throw new RuntimeException("Query failed to execute: {$e->getMessage()}");
         }
     }
 }

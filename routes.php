@@ -57,3 +57,16 @@ $router->get('/products/{id}', 'ProductController@show');
 $router->post('/products', 'ProductController@store', ['auth']);
 $router->put('/products/{id}', 'ProductController@update', ['auth']);
 $router->delete('/products/{id}', 'ProductController@destroy', ['auth']);
+
+/** 
+ * Example Colours Feature Routes 
+ */
+$router->get('/colours', 'ColourController@index');
+$router->get('/colours/create', 'ColourController@create', ['auth']);
+$router->get('/colours/edit/{id}', 'ColourController@edit', ['auth']);
+$router->get('/colours/search', 'ColourController@search');
+$router->get('/colours/{id}', 'ColourController@show');
+
+$router->post('/colours', 'ColourController@store', ['auth']);
+$router->put('/colours/{id}', 'ColourController@update', ['auth']);
+$router->delete('/colours/{id}', 'ColourController@destroy', ['auth']);

@@ -49,12 +49,25 @@ class ColourController
      */
     public function index(): void
     {
-        $sql = "SELECT * FROM colours ORDER BY created_at DESC";
+        $filter = "";
+        if (isset($_GET['filter']) && strlen($_GET['filter']) > 0) {
+            $sql = 'SELECT * FROM colours  WHERE classification LIKE :filter_value';
+            $filter = $_GET['filter'];
+            $colours = $this->db->query($sql, ["filter_value" => $filter])->fetchAll();
+        } else {
+            $sql = 'SELECT * FROM colours';
+            $colours = $this->db->query($sql)->fetchAll();
+        }
+        $colour_count = count($colours);
 
-        $colours = $this->db->query($sql)->fetchAll();
+        $sqlColourSelect = "SELECT DISTINCT classification FROM colours";
+        $colourSelect = $this->db->query($sqlColourSelect)->fetchAll();
 
         loadView('colours/index', [
-            'colours' => $colours
+            'colours' => $colours,
+            'filter' => $filter,
+            'colour_count' => $colour_count,
+            'colourSelect' => $colourSelect,
         ]);
     }
 
