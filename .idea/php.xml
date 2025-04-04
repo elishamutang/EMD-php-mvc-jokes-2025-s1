@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="MessDetector">
+    <phpmd_settings>
+      <phpmd_by_interpreter asDefaultInterpreter="true" interpreter_id="69029a34-a591-40d1-a015-be0f5f5a7f6e" timeout="30000" />
+    </phpmd_settings>
+  </component>
   <component name="MessDetectorOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
@@ -12,7 +17,7 @@
   </component>
   <component name="PhpCodeSniffer">
     <phpcs_settings>
-      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="92f807e5-972d-4aa8-b45b-46509f268570" timeout="30000" />
+      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="69029a34-a591-40d1-a015-be0f5f5a7f6e" timeout="30000" />
     </phpcs_settings>
   </component>
   <component name="PhpIncludePathManager">

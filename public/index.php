@@ -2,7 +2,7 @@
 /**
  * Public facing index page
  *
- * Performs teh bootstrapping of the application by
+ * Performs the bootstrapping of the application by
  * - autoloading the classes
  * - requiring the helper functions
  * - creating a list of routes
