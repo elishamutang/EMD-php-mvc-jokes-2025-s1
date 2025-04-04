@@ -1,5 +1,5 @@
 <a name="readme-top" id="readme-top"></a>
-# XXX SaaS Vanilla MVC YYYY SN
+# EMD SaaS Vanilla MVC 2025 S1
 
 Base Code for a Vanilla PHP Micro-MVC Framework.
 
@@ -176,9 +176,9 @@ TODO: More details on use for use in developing basic application using this cod
 
 ## Contact
 
-Adrian Gould - Adrian.Gould@nmtafe.wa.edu.au
+Elisha Mutang Daneil - 20145565@tafe.wa.edu.au
 
-Project Link: https://github.com/AdyGCode/xxx-saas-vanilla-mvc-yyyy-sn
+Project Link: https://github.com/elishamutang/EMD-php-mvc-jokes-2025-s1
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
