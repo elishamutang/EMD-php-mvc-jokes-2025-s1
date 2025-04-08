@@ -97,7 +97,7 @@ loadPartial('navigation');
                     <a href="https://help.screencraft.net.au"
                        class="hover:text-black">
                         <i class="fa fa-home inline-block mr-2 text-sm"></i>
-                        <?= $product->name ?>
+                        <?= $joke->title ?>
                     </a>
                 </dd>
 
