@@ -31,44 +31,44 @@ class HomeController
     }
 
     /*
-     * Show the latest products
+     * Show the latest jokes
      *
      * @return void
      */
     public function index()
     {
-        $simpleRandomSixQuery = 'SELECT * FROM products ORDER BY RAND() LIMIT 0,1';
+        $simpleRandomSixQuery = 'SELECT * FROM jokes ORDER BY RAND() LIMIT 0,1';
 
-        $products = $this->db->query($simpleRandomSixQuery)
+        $jokes = $this->db->query($simpleRandomSixQuery)
             ->fetchAll();
 
 
         loadView('home', [
-            'product' => $products[0]
+            'joke' => $jokes[0]
         ]);
     }
 
     /*
-     * Show the latest products
+     * Show the latest jokes
      *
      * @return void
      */
     public function dashboard()
     {
-        $lastSixQuery = 'SELECT * FROM products ORDER BY created_at DESC LIMIT 0,6';
-        $simpleRandomSixQuery = 'SELECT * FROM products ORDER BY RAND() LIMIT 0,6';
+        $lastSixQuery = 'SELECT * FROM jokes ORDER BY created_at DESC LIMIT 0,6';
+        $simpleRandomSixQuery = 'SELECT * FROM jokes ORDER BY RAND() LIMIT 0,6';
 
-        $products = $this->db->query($simpleRandomSixQuery)
+        $jokes = $this->db->query($simpleRandomSixQuery)
             ->fetchAll();
 
-        $productCount = $this->db->query('SELECT count(id) as total FROM products ')
+        $productCount = $this->db->query('SELECT count(id) as total FROM jokes ')
             ->fetch();
 
         $userCount = $this->db->query('SELECT count(id) as total FROM users')
             ->fetch();
 
         loadView('dashboard', [
-            'products' => $products,
+            'jokes' => $jokes,
             'productCount' => $productCount,
             'userCount' => $userCount,
         ]);
