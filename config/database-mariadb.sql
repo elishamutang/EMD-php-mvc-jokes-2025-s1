@@ -232,7 +232,7 @@ INSERT INTO `EMD_SaaS_FED_2025_S1`.`users`
 VALUES (20, 'Adrian','Gould', 'Adrian Gould', 'adrian@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
         'Perth', 'WA', 'Australia', '2024-01-01 10:30:01', null),
-       (30, 'Elisha Mutang', 'Daneil', 'Elisha Mutang Daneil', 'GIVEN_NAME@example.com',
+       (30, 'Elisha Mutang', 'Daneil', 'Elisha Mutang Daneil', 'elishamutang@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
         'Perth', 'WA', 'Australia', '2024-08-10 16:11:43', null);
 
