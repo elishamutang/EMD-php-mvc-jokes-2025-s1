@@ -33,19 +33,19 @@
 -- --------------------------------------------------------------------------------------------
 
 -- --------------------------------------------------------------------------------------------
--- Tell MySQL to use the XXX_SaaS_FED_YYYY_SN database for commands.
+-- Tell MySQL to use the EMD_SaaS_FED_2025_S1 database for commands.
 -- --------------------------------------------------------------------------------------------
-USE `XXX_SaaS_FED_YYYY_SN`;
+USE `EMD_SaaS_FED_2025_S1`;
 
 -- --------------------------------------------------------------------------------------------
 -- Remove any existing colours table
 -- --------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS `XXX_SaaS_FED_YYYY_SN`.`colours`;
+DROP TABLE IF EXISTS `EMD_SaaS_FED_2025_S1`.`colours`;
 
 -- --------------------------------------------------------------------------------------------
 -- Create the table structure for the 'colours' table
 -- --------------------------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `XXX_SaaS_FED_YYYY_SN`.`colours`
+CREATE TABLE IF NOT EXISTS `EMD_SaaS_FED_2025_S1`.`colours`
 (
     `id`             int          NOT NULL AUTO_INCREMENT,
     `name`           varchar(128) NOT NULL,
@@ -72,12 +72,12 @@ CREATE TABLE IF NOT EXISTS `XXX_SaaS_FED_YYYY_SN`.`colours`
 -- --------------------------------------------------------------------------------------------
 -- Remove any existing colour_product pivot table
 -- --------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS `XXX_SaaS_FED_YYYY_SN`.`colour_product`;
+DROP TABLE IF EXISTS `EMD_SaaS_FED_2025_S1`.`colour_product`;
 
 -- --------------------------------------------------------------------------------------------
 -- Create the table structure for the 'colours' table
 -- --------------------------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `XXX_SaaS_FED_YYYY_SN`.`colour_product`
+CREATE TABLE IF NOT EXISTS `EMD_SaaS_FED_2025_S1`.`colour_product`
 (
     `id`         int NOT NULL AUTO_INCREMENT,
     `colour_id`  int NOT NULL,
@@ -106,9 +106,9 @@ CREATE TABLE IF NOT EXISTS `XXX_SaaS_FED_YYYY_SN`.`colour_product`
 -- --------------------------------------------------------------------------------------------
 
 -- --------------------------------------------------------------------------------------------
--- Tell MySQL to use the XXX_SaaS_FED_YYYY_SN database for commands.
+-- Tell MySQL to use the EMD_SaaS_FED_2025_S1 database for commands.
 -- --------------------------------------------------------------------------------------------
-USE `XXX_SaaS_FED_YYYY_SN`;
+USE `EMD_SaaS_FED_2025_S1`;
 
 -- --------------------------------------------------------------------------------------------
 -- Seed colours Table
@@ -120,7 +120,7 @@ USE `XXX_SaaS_FED_YYYY_SN`;
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (1, 'Absolute Zero', '0048ba', 004, 139, 010, 'oklch(from #0048ba l c h)', 50.1109912750224, 76.2820887835873,
         310.356039493358, "2000-01-01 00:00:01"),
        (2, 'Acid Green', 'b0bf1a', 011, 241, 010, 'oklch(from #b0bf1a l c h)', 83.4420991416252, 116.376061984598,
@@ -314,7 +314,7 @@ VALUES (1, 'Absolute Zero', '0048ba', 004, 139, 010, 'oklch(from #0048ba l c h)'
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (null, 'Byzantium', '702963', 002, 150, 003, 'oklch(from #702963 l c h)', 53.8469304410105, 81.8937336645097,
         310.923013566125, "2000-01-01 00:00:01"),
        (null, 'Cadet Grey', '91a3b0', 026, 059, 000, 'oklch(from #91a3b0 l c h)', 21.3847247704565, 38.2977505542912,
@@ -518,7 +518,7 @@ VALUES (null, 'Byzantium', '702963', 002, 150, 003, 'oklch(from #702963 l c h)',
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (null, 'Dark Goldenrod', 'b8860b', 136, 096, 011, 'oklch(from #b8860b l c h)', 43.6908058157993,
         47.2163683002452, 5.80092679623031, "2000-01-01 00:00:01"),
        (null, 'Dark Goldenrod 1', 'ffb90f', 251, 144, 015, 'oklch(from #ffb90f l c h)', 69.8213012462194,
@@ -976,7 +976,7 @@ VALUES (null, 'Dark Goldenrod', 'b8860b', 136, 096, 011, 'oklch(from #b8860b l c
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (null, 'Green (Crayola', '1cac78', 202, 199, 008, 'oklch(from #1cac78 l c h)', 78.1237901927035,
         78.9037264858961, 343.018514828368, "2000-01-01 00:00:01"),
        (null, 'Green (Pantone', '00ad43', 010, 212, 003, 'oklch(from #00ad43 l c h)', 74.288769368147, 105.978271780023,
@@ -1314,7 +1314,7 @@ VALUES (null, 'Green (Crayola', '1cac78', 202, 199, 008, 'oklch(from #1cac78 l c
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (null, 'Mauvelous', 'ef98aa', 249, 138, 010, 'oklch(from #ef98aa l c h)', 68.2736039358476, 76.527660421965,
         22.1244767615281, "2000-01-01 00:00:01"),
        (null, 'Maximum Blue Green', '30bfbf', 011, 251, 015, 'oklch(from #30bfbf l c h)', 86.5512672768213,
@@ -1536,7 +1536,7 @@ VALUES (null, 'Mauvelous', 'ef98aa', 249, 138, 010, 'oklch(from #ef98aa l c h)',
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (null, 'Orchid', 'da70d6', 167, 013, 006, 'oklch(from #da70d6 l c h)', 35.0417567002649, 69.0786084731313,
         48.9373211106658, "2000-01-01 00:00:01"),
        (null, 'Orchid (Crayola', 'e29cd2', 041, 205, 002, 'oklch(from #e29cd2 l c h)', 72.319095505421,
@@ -1714,7 +1714,7 @@ VALUES (null, 'Orchid', 'da70d6', 167, 013, 006, 'oklch(from #da70d6 l c h)', 35
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (null, 'Quinacridone Magenta', '8e3a59', 227, 165, 009, 'oklch(from #8e3a59 l c h)', 71.7342460021923,
         72.1940582658906, 4.38371751525825, "2000-01-01 00:00:01"),
        (null, 'Radical Red', 'ff355e', 243, 085, 014, 'oklch(from #ff355e l c h)', 57.645318603863,
@@ -1834,7 +1834,7 @@ VALUES (null, 'Quinacridone Magenta', '8e3a59', 227, 165, 009, 'oklch(from #8e3a
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, classification,
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, classification,
                                              created_at)
 VALUES (null, 'Shocking Pink', 'fc0fc0', 192, 252, 000, 'oklch(from #fc0fc0 l c h)', 92.054414990354, 100.624311908409,
         328.697381891302, "pink", "2000-01-01 00:00:01"),
@@ -1889,7 +1889,7 @@ VALUES (null, 'Shocking Pink', 'fc0fc0', 192, 252, 000, 'oklch(from #fc0fc0 l c 
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (null, 'Smoky Black', '100c08', 000, 192, 008, 'oklch(from #100c08 l c h)', 67.8095024220472, 98.1186474796386,
         310.735282627797, "2000-01-01 00:00:01"),
        (null, 'Snow  1', 'fffafa', 255, 175, 010, 'oklch(from #fffafa l c h)', 77.2491904506786, 77.9553431207044,
@@ -2075,7 +2075,7 @@ VALUES (null, 'Smoky Black', '100c08', 000, 192, 008, 'oklch(from #100c08 l c h)
 COMMIT;
 
 START TRANSACTION;
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colours`(id, name, hex_code, red, green, blue, oklch, l, c, h, created_at)
 VALUES (null, 'Wheat  1', 'ffe7ba', 254, 123, 010, 'oklch(from #f5deb3 l c h)', 82.7788087443433, 108.078804859528,
         315.32903266812, "2000-01-01 00:00:01"),
        (null, 'Wheat', 'f5deb3', 093, 235, 003, 'oklch(from #ffe7ba l c h)', 65.9544134971737, 79.6240734658985,
@@ -2134,7 +2134,7 @@ COMMIT;
 -- Seed colours Table
 -- The Password is Password1 hashed using the PHP password_hash() method.
 -- --------------------------------------------------------------------------------------------
-INSERT INTO `XXX_SaaS_FED_YYYY_SN`.`colour_product`(`colour_id`, `product_id`)
+INSERT INTO `EMD_SaaS_FED_2025_S1`.`colour_product`(`colour_id`, `product_id`)
 VALUES (8, 75228),
        (87, 885),
        (100, 21108),
