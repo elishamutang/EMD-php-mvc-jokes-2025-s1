@@ -1,5 +1,5 @@
 {
-  "name": "XXX-SaaS-Vanilla-MVC-YYYY-SN",
+  "name": "emd-php-mvc-jokes-2025-s1",
   "version": "1.1.0",
   "description": "Simple PHP MVC & TailwindCSS Application Template",
   "main": "index.php",
@@ -24,7 +24,7 @@
     "simple",
     "traversy-media"
   ],
-  "author": "Adrian Gould <adrian.gould@nmtafe.wa.edu.au>",
+  "author": "Elisha Mutang Daneil <20145565@tafe.wa.edu.au>",
   "license": "SEE LICENSE IN Licence.md",
   "bugs": {
     "url": "https://github.com/adygcode/XXX-SaaS-Vanilla-MVC-YYYY-SN/issues"
