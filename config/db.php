@@ -12,9 +12,9 @@
  */
 
 return [
-    'host' => '127.0.0.1',
-    'port' => 3306,
-    'dbname' => 'XXX_SaaS_FED_YYYY_SN',
-    'username' => 'XXX_SaaS_FED_YYYY_SN',
+    'host' => 'localhost',
+    'port' => 8000,
+    'dbname' => 'EMD_SaaS_FED_2025_S1',
+    'username' => 'EMD_SaaS_FED_2025_S1',
     'password' => 'Password1234'
 ];
