@@ -23,6 +23,8 @@ loadPartial('navigation'); ?>
             Edit Details
         </h2>
 
+        <?= loadPartial('message') ?>
+
         <?= loadPartial('errors', [
             'errors' => $errors ?? []
         ]) ?>

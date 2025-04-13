@@ -267,7 +267,10 @@ class UserController
             'country' => $country
         ]);
 
-        redirect('/');
+        // Set flash message
+        Session::setFlashMessage('success_message', 'Details updated');
+
+        redirect('/edit');
 
     }
 
