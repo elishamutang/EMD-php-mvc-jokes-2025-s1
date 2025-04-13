@@ -23,7 +23,7 @@ $authenticated = new Authorise();
              text-pink-500 hover:text-black
              hover:bg-prussianblue-500
                  transition ease-in-out duration-700">
-            MVC
+            JOKEIFY
         </a>
     </h1>
     <nav class="flex flex-row py-4 flex-grow ml-8">
@@ -52,14 +52,6 @@ $authenticated = new Authorise();
             }
             ?>
 
-            <li>
-                <a href="/products"
-                   class="pb-2 px-1 text-gray-400 hover:text-gray-300
-                     border-0 border-b-2 hover:border-b-gray-500
-                     transition ease-in-out duration-500">
-                    Products
-                </a>
-            </li>
             <li>
                 <a href="/colours"
                    class="pb-2 px-1 text-gray-400 hover:text-gray-300
@@ -129,7 +121,7 @@ $authenticated = new Authorise();
 
             <li>
                 <form method="GET" action="#" class="block mx-5 flex">
-                    <input type="text" name="keywords" placeholder="Product search..."
+                    <input type="text" name="keywords" placeholder="Jokes search..."
                            class="w-full md:w-auto px-4 py-1 border border-gray-800 focus:outline-none focus:border-b-gray-500"/>
                     <button class="w-full md:w-auto bg-gray-500 hover:bg-gray-600 text-white px-4 py-1 focus:outline-none transition ease-in-out duration-500">
                         <i class="fa fa-search"></i> Search
