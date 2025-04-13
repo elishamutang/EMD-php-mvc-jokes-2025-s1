@@ -18,6 +18,7 @@ $router->get('/', 'StaticPageController@index');
 
 $router->get('/dashboard', 'HomeController@dashboard', ['auth']);
 $router->get('/edit', 'HomeController@edit', ['auth']);
+$router->get('/about', 'StaticPageController@about');
 
 $router->get('/auth/register', 'UserController@create', ['guest']);
 $router->get('/auth/login', 'UserController@login', ['guest']);

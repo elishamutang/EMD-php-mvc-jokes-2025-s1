@@ -59,4 +59,14 @@ class StaticPageController
         ]);
     }
 
+    /**
+     * Directs user to about page regardless if logged in or not.
+     *
+     * @return void
+     */
+    public function about()
+    {
+        loadView('about');
+    }
+
 }
