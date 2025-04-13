@@ -17,6 +17,7 @@
 $router->get('/', 'HomeController@index');
 
 $router->get('/dashboard', 'HomeController@dashboard');
+$router->get('/edit', 'HomeController@edit');
 
 $router->get('/auth/register', 'UserController@create', ['guest']);
 $router->get('/auth/login', 'UserController@login', ['guest']);
@@ -24,6 +25,7 @@ $router->get('/auth/login', 'UserController@login', ['guest']);
 $router->post('/auth/register', 'UserController@store', ['guest']);
 $router->post('/auth/logout', 'UserController@logout', ['auth']);
 $router->post('/auth/login', 'UserController@authenticate', ['guest']);
+$router->post('/edit', 'UserController@update');
 
 /**
  * Example Routes for a feature (Feature)
