@@ -51,7 +51,7 @@
                 <span class="text-prussianblue-600 text-xs p-1">New</span>
             </p>
 
-            <a class="my-1 block" href="https://github.com/AdyGCode/XXX-SaaS-Vanilla-MVC-YYYY-SN">
+            <a class="my-1 block" href="https://github.com/AdyGCode/EMD-php-mvc-jokes-2025-s1" target="_blank">
                 Source Code 
                 <span class="text-prussianblue-600 text-xs p-1"></span>
             </a>
@@ -98,11 +98,11 @@
             </a>
 
             <a class="my-1 block" href="/#">
-                contact@example.com
+                elishamutang@outlook.com
                 <span class="text-prussianblue-600 text-xs p-1"></span>
             </a>
             <p class="text-gray-400 pt-6">
-                &copy; Copyright YYYY YOUR_NAME. All rights reserved.
+                &copy; Copyright 2025 Elisha Daneil. All rights reserved.
             </p>
         </nav>
         <nav class="py-2 pb-6 col-span-4 flex flex-wrap justify-between">
