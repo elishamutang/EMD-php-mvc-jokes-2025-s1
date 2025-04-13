@@ -24,12 +24,12 @@ loadPartial('navigation');
 
 <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
     <article  class="grid grid-cols-1">
-        <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-2xl font-bold rounded-t-lg">
+        <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-3xl font-bold rounded-t-lg">
             <h1>HOMEPAGE</h1>
         </header>
 
         <section class="my-4 p-4 justify-start">
-            <p class="text-4xl font-bold">Welcome to Jokeify!</p>
+            <p class="text-4xl font-bold">Welcome to Jokeify, a simple jokes system!</p>
             <p>Created by Elisha Daneil as part of the EMD-PHP-MVC-Jokes-2025-S1 project.</p>
         </section>
     </article>
