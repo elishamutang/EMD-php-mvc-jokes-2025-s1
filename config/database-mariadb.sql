@@ -122,8 +122,8 @@ CREATE TABLE IF NOT EXISTS `EMD_SaaS_FED_2025_S1`.`users`
     `password`   varchar(255) NOT NULL,
     `city`       varchar(45)  DEFAULT NULL,
     `state`      varchar(45)  DEFAULT NULL,
-    `country`    varchar(45)  DEFAULT 'Australia',
-    `created_at` timestamp    NULL DEFAULT CURRENT_TIMESTAMP,
+    `country`    varchar(45)  DEFAULT NULL,
+    `created_at` timestamp    DEFAULT CURRENT_TIMESTAMP,
     `updated_at` timestamp    DEFAULT NULL,
 
     PRIMARY KEY (`id`)
@@ -226,26 +226,26 @@ USE `EMD_SaaS_FED_2025_S1`;
 INSERT INTO `EMD_SaaS_FED_2025_S1`.`users`
 VALUES (10, 'Ad', 'Ministrator', 'Administrator', 'admin@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
-        'Perth', 'WA', 'Australia', '2000-01-01 00:00:01', null);
+        'Perth', 'Western Australia', 'Australia', '2000-01-01 00:00:01', null);
 
 INSERT INTO `EMD_SaaS_FED_2025_S1`.`users`
 VALUES (20, 'Adrian','Gould', 'Adrian Gould', 'adrian@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
-        'Perth', 'WA', 'Australia', '2024-01-01 10:30:01', null),
+        'Perth', 'Western Australia', 'Australia', '2024-01-01 10:30:01', null),
        (30, 'Elisha Mutang', 'Daneil', 'Elisha Mutang Daneil', 'elishamutang@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
-        'Perth', 'WA', 'Australia', '2024-08-10 16:11:43', null);
+        'Perth', 'Western Australia', 'Australia', '2024-08-10 16:11:43', null);
 
 INSERT INTO `EMD_SaaS_FED_2025_S1`.`users`
 VALUES (100, 'John', 'Doe', 'John Doe', 'user1@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
-        'Bunbury', 'WA', 'Australia', '2024-08-15 13:04:21', null),
+        'Bunbury', 'Western Australia', 'Australia', '2024-08-15 13:04:21', null),
        (101, 'Jane', 'Doe', 'Jane Doe', 'user2@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
-        'Melbourne', 'VIC', 'Australia', '2024-08-20 13:17:21', null),
+        'Melbourne', 'Victoria', 'Australia', '2024-08-20 13:17:21', null),
        (102, 'Steve', 'Smith', 'Steve Smith', 'user3@example.com',
         '$2y$10$4Ae3n2iQ0MwXMNz0UEmNne2PaNyfYsBFYb97nayHWTDCwpnuPi6f.',
-        'Adelaide', 'SA', 'Australia', '2024-08-20 17:59:13', null);
+        'Adelaide', 'South Australia', 'Australia', '2024-08-20 17:59:13', null);
 -- =======================================> END SECTION <======================================
 
 
