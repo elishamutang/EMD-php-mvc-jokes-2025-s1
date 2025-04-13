@@ -30,17 +30,33 @@ loadPartial('navigation'); ?>
             <form method="POST" action="/auth/register">
 
                 <section class="mb-4">
-                    <label for="Name" class="mt-4 pb-1">Name:</label>
-                    <input type="text" id="Name"
-                           name="name" placeholder="Full Name"
+                    <label for="given_name" class="mt-4 pb-1">Given Name:</label>
+                    <input type="text" id="given_name"
+                           name="given_name" placeholder="Jack"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
-                           value="<?= $user['name'] ?? '' ?>"/>
+                           value="<?= $user['given_name'] ?? '' ?>"/>
+                </section>
+
+                <section class="mb-4">
+                    <label for="family_name" class="mt-4 pb-1">Family Name:</label>
+                    <input type="text" id="family_name"
+                           name="family_name" placeholder="Smith"
+                           class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                           value="<?= $user['family_name'] ?? '' ?>"/>
+                </section>
+
+                <section class="mb-4">
+                    <label for="nickname" class="mt-4 pb-1">Nickname (preferred name):</label>
+                    <input type="text" id="nickname"
+                           name="nickname" placeholder="Jack Smith"
+                           class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                           value="<?= $user['nickname'] ?? '' ?>"/>
                 </section>
 
                 <section class="mb-4">
                     <label for="Email" class="mt-4 pb-1">Email:</label>
                     <input type="email" id="Email"
-                           name="email" placeholder="Email Address"
+                           name="email" placeholder="jacksmith@example.com"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
                            value="<?= $user['email'] ?? '' ?>"/>
                 </section>
@@ -59,6 +75,14 @@ loadPartial('navigation'); ?>
                            name="state" placeholder="State"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
                            value="<?= $user['state'] ?? '' ?>"/>
+                </section>
+
+                <section class="mb-4">
+                    <label for="country" class="mt-4 pb-1">Country:</label>
+                    <input type="text" id="country"
+                           name="country" placeholder="Australia"
+                           class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
+                           value="<?= $user['country'] ?? '' ?>"/>
                 </section>
 
                 <section class="mb-4">
