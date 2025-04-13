@@ -105,6 +105,16 @@ $authenticated = new Authorise();
             } else {
                 ?>
                 <li>
+                    <form method="GET" action="/edit" class="">
+                        <button class="pb-2 px-1 text-sm text-gray-400 hover:text-gray-300
+                     border-0 border-b-2 hover:border-b-gray-500
+                     transition ease-in-out duration-500">
+                            <i class="fa-solid fa-user-pen"></i> Edit Details
+                        </button>
+                    </form>
+                </li>
+
+                <li>
                     <form method="POST" action="/auth/logout" class="">
                         <button class="pb-2 px-1 text-sm text-gray-400 hover:text-gray-300
                      border-0 border-b-2 hover:border-b-gray-500
