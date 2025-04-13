@@ -7,10 +7,10 @@
  *
  * Filename:        UserController.php
  * Location:        App/Controllers
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    20/08/2024
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    04/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 
@@ -34,8 +34,7 @@ class UserController
      * UserController Constructor
      *
      * Instantiate the database connection for use in this class
-     * storing the connection in the protected <code>$db</code>
-     * property.
+     * storing the connection in the protected $db property.
      *
      * @throws \Exception
      */
