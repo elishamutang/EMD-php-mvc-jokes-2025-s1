@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adygcode/XXX-SaaS-Vanilla-MVC-YYYY-SN.git"
+    "url": "git+https://github.com/elishamutang/EMD-php-mvc-jokes-2025-s1.git"
   },
   "keywords": [
     "tailwindcss",
@@ -27,9 +27,9 @@
   "author": "Elisha Mutang Daneil <20145565@tafe.wa.edu.au>",
   "license": "SEE LICENSE IN Licence.md",
   "bugs": {
-    "url": "https://github.com/adygcode/XXX-SaaS-Vanilla-MVC-YYYY-SN/issues"
+    "url": "https://github.com/elishamutang/EMD-php-mvc-jokes-2025-s1/issues"
   },
-  "homepage": "https://github.com/adygcode/XXX-SaaS-Vanilla-MVC-YYYY-SN#readme",
+  "homepage": "https://github.com/elishamutang/EMD-php-mvc-jokes-2025-s1#readme",
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.13",
     "@tailwindcss/postcss": "^4.0.13",
