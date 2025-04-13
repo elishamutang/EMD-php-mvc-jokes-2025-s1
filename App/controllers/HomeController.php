@@ -18,7 +18,6 @@ namespace App\Controllers;
 
 use Framework\Database;
 use Framework\Session;
-use Framework\middleware\Authorise;
 
 class HomeController
 {

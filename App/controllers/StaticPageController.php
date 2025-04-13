@@ -17,8 +17,6 @@
 namespace App\controllers;
 
 use Framework\Database;
-use Framework\Session;
-use Framework\Validation;
 
 class StaticPageController
 {
