@@ -18,15 +18,18 @@ namespace App\Controllers;
 
 use Framework\Database;
 use Framework\Session;
+use Framework\middleware\Authorise;
 
 class HomeController
 {
-    protected $db;
+    protected Database $db;
+    protected Authorise $authenticate;
 
     public function __construct()
     {
         $config = require basePath('config/db.php');
         $this->db = new Database($config);
+        $this->authenticate = new Authorise();
     }
 
     /*
@@ -34,7 +37,7 @@ class HomeController
      *
      * @return void
      */
-    public function index()
+    public function index():void
     {
         $simpleRandomSixQuery = 'SELECT * FROM jokes ORDER BY RAND() LIMIT 0,1';
 
@@ -52,7 +55,7 @@ class HomeController
      *
      * @return void
      */
-    public function dashboard()
+    public function dashboard():void
     {
         $lastSixQuery = 'SELECT * FROM jokes ORDER BY created_at DESC LIMIT 0,6';
         $simpleRandomSixQuery = 'SELECT * FROM jokes ORDER BY RAND() LIMIT 0,6';
@@ -68,6 +71,11 @@ class HomeController
 
         $user = Session::get('user');
 
+        if(!$this->authenticate->isAuthenticated()) {
+            loadView('errors/403');
+            exit;
+        }
+
         loadView('dashboard', [
             'user' => $user,
             'jokes' => $jokes,
@@ -81,9 +89,14 @@ class HomeController
      *
      * @return void
      */
-    public function edit()
+    public function edit():void
     {
         $user = Session::get('user');
+
+        if(!$this->authenticate->isAuthenticated()) {
+            loadView('errors/403');
+            exit;
+        }
 
         loadView('/users/edit', [
            'user' => $user
