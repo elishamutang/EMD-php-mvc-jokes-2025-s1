@@ -102,7 +102,7 @@ loadPartial('navigation'); ?>
             <section class="mb-4">
 
                 <button type="submit"
-                        class="w-full bg-prussianblue-500 hover:bg-prussianblue-600 text-white px-4 py-2 rounded
+                        class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded
                                    focus:outline-none transition ease-in-out duration-500">
                     Save changes
                 </button>
