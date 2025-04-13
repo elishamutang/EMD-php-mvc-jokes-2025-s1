@@ -72,10 +72,13 @@ class UserController
      */
     public function store()
     {
-        $name = $_POST['name'] ?? null;
+        $given_name = $_POST['given_name'] ?? null;
+        $family_name = $_POST['family_name'] ?? null;
+        $nickname = $_POST['nickname'] ?? null;
         $email = $_POST['email'] ?? null;
         $city = $_POST['city'] ?? null;
         $state = $_POST['state'] ?? null;
+        $country = $_POST['country'] ?? null;
         $password = $_POST['password'] ?? null;
         $passwordConfirmation = $_POST['password_confirmation'] ?? null;
 
@@ -86,8 +89,8 @@ class UserController
             $errors['email'] = 'Please enter a valid email address';
         }
 
-        if (!Validation::string($name, 2, 50)) {
-            $errors['name'] = 'Name must be between 2 and 50 characters';
+        if (!Validation::string($given_name, 2, 50)) {
+            $errors['given_name'] = 'Given name must be between 2 and 50 characters';
         }
 
         if (!Validation::string($password, 6, 50)) {
@@ -102,10 +105,13 @@ class UserController
             loadView('users/create', [
                 'errors' => $errors,
                 'user' => [
-                    'name' => $name,
+                    'given_name' => $given_name,
+                    'family_name' => $family_name,
+                    'nickname' => $nickname,
                     'email' => $email,
                     'city' => $city,
                     'state' => $state,
+                    'country' => $country
                 ]
             ]);
             exit;
@@ -128,14 +134,17 @@ class UserController
 
         // Create user account
         $params = [
-            'name' => $name,
+            'given_name' => $given_name,
+            'family_name' => $family_name,
+            'nickname' => empty($nickname) ? $given_name : $nickname,
             'email' => $email,
-            'city' => $city,
-            'state' => $state,
-            'password' => password_hash($password, PASSWORD_DEFAULT)
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'city' => empty($city) ? 'Unknown' : $city,
+            'state' => empty($state) ? 'Unknown' : $state,
+            'country' => empty($country) ? 'Unknown' : $country,
         ];
 
-        $this->db->query('INSERT INTO users (name, email, city, state, password) VALUES (:name, :email, :city, :state, :password)', $params);
+        $this->db->query('INSERT INTO users (given_name, family_name, nickname, email, password, city, state, country) VALUES (:given_name, :family_name, :nickname, :email, :password, :city, :state, :country)', $params);
 
         // Get new user ID
         $userId = $this->db->conn->lastInsertId();
@@ -143,14 +152,126 @@ class UserController
         // Set user session
         Session::set('user', [
             'id' => $userId,
-            'name' => $name,
+            'given_name' => $given_name,
+            'family_name' => $family_name,
+            'nickname' => $nickname,
             'email' => $email,
             'city' => $city,
-            'state' => $state
+            'state' => $state,
+            'country' => $country
         ]);
 
         redirect('/');
     }
+
+    /**
+     * Update user details.
+     *
+     * @return void
+     */
+    public function update()
+    {
+        // Get current user
+        $user = Session::get('user');
+
+        $given_name = $_POST['given_name'] ?? null;
+        $family_name = $_POST['family_name'] ?? null;
+        $nickname = $_POST['nickname'] ?? null;
+        $email = $_POST['email'] ?? null;
+        $city = $_POST['city'] ?? null;
+        $state = $_POST['state'] ?? null;
+        $country = $_POST['country'] ?? null;
+        $password = $_POST['password'] ?? null;
+        $passwordConfirmation = $_POST['password_confirmation'] ?? null;
+
+        $errors = [];
+
+        // Validation
+        if (!Validation::email($email)) {
+            $errors['email'] = 'Please enter a valid email address';
+        }
+
+        if (!Validation::string($given_name, 2, 50)) {
+            $errors['given_name'] = 'Given name must be between 2 and 50 characters';
+        }
+
+        if (!Validation::string($password, 6, 50)) {
+            $errors['password'] = 'Password must be at least 6 characters';
+        }
+
+        if (!Validation::match($password, $passwordConfirmation)) {
+            $errors['password_confirmation'] = 'Passwords do not match';
+        }
+
+        if (!empty($errors)) {
+            loadView('users/edit', [
+                'errors' => $errors,
+                'user' => [
+                    'given_name' => $given_name,
+                    'family_name' => $family_name,
+                    'nickname' => $nickname,
+                    'email' => $email,
+                    'city' => $city,
+                    'state' => $state,
+                    'country' => $country
+                ]
+            ]);
+            exit;
+        }
+
+        // Check if email entered is already registered.
+        $params = [
+            'email' => $email
+        ];
+
+        $existing_user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
+
+        // Allows current user to maintain current email without raising error.
+        if ($existing_user && !Validation::match((string) $existing_user -> id, $user['id'])) {
+            $errors['email'] = 'Email is already registered.';
+            loadView('users/edit', [
+                'errors' => $errors,
+                'user' => [
+                    'given_name' => $given_name,
+                    'family_name' => $family_name,
+                    'nickname' => $nickname,
+                    'city' => $city,
+                    'state' => $state,
+                    'country' => $country
+                ]
+            ]);
+        }
+
+        // Update user details
+        $params = [
+            'id' => $user['id'],
+            'given_name' => $given_name,
+            'family_name' => $family_name,
+            'nickname' => empty($nickname) ? $given_name : $nickname,
+            'email' => $email,
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'city' => empty($city) ? 'Unknown' : $city,
+            'state' => empty($state) ? 'Unknown' : $state,
+            'country' => empty($country) ? 'Unknown' : $country,
+        ];
+
+        $this->db->query('UPDATE users SET given_name = :given_name, family_name = :family_name, nickname = :nickname, email = :email, password = :password, city = :city, state = :state, country = :country, updated_at = CURRENT_TIMESTAMP WHERE id = :id', $params);
+
+        Session::set('user', [
+            'id' => $user['id'],
+            'given_name' => $given_name,
+            'family_name' => $family_name,
+            'nickname' => $nickname,
+            'email' => $email,
+            'city' => $city,
+            'state' => $state,
+            'country' => $country
+        ]);
+
+        redirect('/');
+
+    }
+
 
     /**
      * Logout a user and kill session
@@ -164,7 +285,7 @@ class UserController
         $params = session_get_cookie_params();
         setcookie('PHPSESSID', '', time() - 86400, $params['path'], $params['domain']);
 
-        redirect('/');
+        redirect('/auth/login');
     }
 
     /**
@@ -223,12 +344,15 @@ class UserController
         // Set user session
         Session::set('user', [
             'id' => $user->id,
-            'name' => $user->name,
+            'given_name' => $user->given_name,
+            'family_name' => $user->family_name,
+            'nickname' => $user->nickname,
             'email' => $user->email,
             'city' => $user->city,
-            'state' => $user->state
+            'state' => $user->state,
+            'country' => $user->country
         ]);
 
-        redirect('/');
+        redirect('/dashboard');
     }
 }
