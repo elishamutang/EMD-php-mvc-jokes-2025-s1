@@ -19,6 +19,7 @@ namespace App\Controllers;
 
 
 use Framework\Database;
+use Framework\Session;
 
 class HomeController
 {
@@ -61,19 +62,34 @@ class HomeController
         $jokes = $this->db->query($simpleRandomSixQuery)
             ->fetchAll();
 
-        $productCount = $this->db->query('SELECT count(id) as total FROM jokes ')
+        $jokesCount = $this->db->query('SELECT count(id) as total FROM jokes ')
             ->fetch();
 
         $userCount = $this->db->query('SELECT count(id) as total FROM users')
             ->fetch();
 
+        $user = Session::get('user');
+
         loadView('dashboard', [
+            'user' => $user,
             'jokes' => $jokes,
-            'productCount' => $productCount,
+            'jokesCount' => $jokesCount,
             'userCount' => $userCount,
         ]);
     }
 
+    /*
+     * Allow user to edit their personal details.
+     *
+     * @return void
+     */
+    public function edit()
+    {
+        $user = Session::get('user');
 
+        loadView('/users/edit', [
+           'user' => $user
+        ]);
+    }
 
 }
