@@ -49,6 +49,7 @@ class JokeController
      */
     public function index(): void
     {
+        /* Load jokes along with category name. */
         $sql = "SELECT jokes.*, categories.name AS category_name FROM jokes JOIN categories ON jokes.category_id = categories.id ORDER BY created_at DESC";
 
         $jokes = $this->db->query($sql)->fetchAll();
