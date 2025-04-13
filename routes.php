@@ -14,10 +14,10 @@
  *
  */
 
-$router->get('/', 'HomeController@index');
+$router->get('/', 'StaticPageController@index');
 
-$router->get('/dashboard', 'HomeController@dashboard');
-$router->get('/edit', 'HomeController@edit');
+$router->get('/dashboard', 'HomeController@dashboard', ['auth']);
+$router->get('/edit', 'HomeController@edit', ['auth']);
 
 $router->get('/auth/register', 'UserController@create', ['guest']);
 $router->get('/auth/login', 'UserController@login', ['guest']);
