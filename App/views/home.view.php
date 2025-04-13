@@ -95,7 +95,7 @@ loadPartial('navigation');
             <dt class="text-lg font-semibold">Featured Product</dt>
                 <dd class="ml-4">
                     <a href="https://help.screencraft.net.au"
-                       class="hover:text-black">
+                       class="hover:text-black" target="_blank">
                         <i class="fa fa-home inline-block mr-2 text-sm"></i>
                         <?= $joke->title ?>
                     </a>
