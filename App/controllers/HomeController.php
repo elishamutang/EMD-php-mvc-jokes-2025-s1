@@ -23,13 +23,11 @@ use Framework\middleware\Authorise;
 class HomeController
 {
     protected Database $db;
-    protected Authorise $authenticate;
 
     public function __construct()
     {
         $config = require basePath('config/db.php');
         $this->db = new Database($config);
-        $this->authenticate = new Authorise();
     }
 
     /*
@@ -71,11 +69,6 @@ class HomeController
 
         $user = Session::get('user');
 
-        if(!$this->authenticate->isAuthenticated()) {
-            loadView('errors/403');
-            exit;
-        }
-
         loadView('dashboard', [
             'user' => $user,
             'jokes' => $jokes,
@@ -92,11 +85,6 @@ class HomeController
     public function edit():void
     {
         $user = Session::get('user');
-
-        if(!$this->authenticate->isAuthenticated()) {
-            loadView('errors/403');
-            exit;
-        }
 
         loadView('/users/edit', [
            'user' => $user
