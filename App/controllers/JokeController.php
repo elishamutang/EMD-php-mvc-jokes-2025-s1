@@ -91,4 +91,30 @@ class JokeController
         ]);
     }
 
+    /**
+     * Show details of a joke
+     *
+     * @return void
+     */
+    public function show(array $params):void
+    {
+        $id = $params['id'] ?? '';
+
+        $query = "SELECT jokes.*, categories.name AS category_name, users.given_name AS author_given_name, users.family_name AS author_family_name 
+                  FROM ((jokes 
+                      JOIN categories ON jokes.category_id = categories.id)
+                      JOIN users ON jokes.author_id = users.id)
+                  WHERE jokes.id = :id";
+
+        $params = [
+            'id' => $id
+        ];
+
+        $joke = $this->db->query($query, $params)->fetch();
+
+        loadView('/jokes/show', [
+           'joke' => $joke,
+        ]);
+    }
+
 }

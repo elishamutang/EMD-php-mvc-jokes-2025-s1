@@ -30,6 +30,7 @@ $router->post('/edit', 'UserController@update');
 
 $router->get('/jokes', 'JokeController@index', ['auth']);
 $router->get('/jokes/search', 'JokeController@search');
+$router->get('/jokes/{id}', 'JokeController@show');
 
 /**
  * Example Routes for a feature (Feature)
