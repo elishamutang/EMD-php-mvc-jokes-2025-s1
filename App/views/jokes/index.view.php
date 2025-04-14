@@ -24,10 +24,10 @@ loadPartial('navigation');
 
 <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
     <article>
-        <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 mb-8 flex">
-            <h1 class="grow text-3xl font-bold ">JOKES</h1>
+        <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 mb-8 flex rounded-t-lg">
+            <h1 class="grow text-3xl font-bold tracking-widest">JOKES</h1>
             <p class="text-md  px-8 py-2 bg-prussianblue-500 hover:bg-prussianblue-600 text-white rounded transition ease-in-out duration-500">
-                <a href="/products/create">Add Joke</a>
+                <a href="/jokes/create">Add Joke</a>
             </p>
         </header>
 
@@ -50,22 +50,24 @@ loadPartial('navigation');
                 <article class=" bg-white border border-zinc-400 shadow rounded flex flex-col overflow-hidden">
                     <header class="-mx-2 bg-zinc-700 text-zinc-200 text-lg p-4 rounded-t flex-0">
                         <h4>
-                            <?= $joke->title ?>
+                            <?= $joke->title ?> by <?= $joke->author_nickname ?>
                         </h4>
                     </header>
 
-                    <section class="flex-grow p-4 ">
+                    <section class="flex-grow px-2 ">
                         <div class="bg-white description flex items-center">
-                            <p class="font-bold mr-2">Category: </p><?= $joke->category_name ?>
+                            <p class="font-bold mr-2">Category: </p><?= ucfirst($joke->category_name) ?>
                         </div>
                     </section>
 
-                    <footer class="-mx-2 bg-zinc-200 text-zinc-900 text-sm px-4 py-4 -mb-2 rounded-b flex-0 flex justify-between">
-<!--                        <p class="pt-1">Price: $--><?php //= $joke->price / 100 ?><!--</p>-->
-                        <a href="/products/<?= $joke->id ?>"
-                           class="btn">
-                            More details...
-                        </a>
+                    <footer class="-mx-2 bg-zinc-200 text-zinc-900 text-sm px-4 py-4 -mb-2 rounded-b flex-0 flex items-center gap-2">
+                        Tags:
+                        <?php
+                            $tags = explode(',', $joke->tags);
+                            foreach($tags as $tag) {
+                                echo "<div class='ml-2 my-1 rounded text-gray-700 bg-gray-300 px-2 py-1'>{$tag}</div>";
+                            };
+                        ?>
                     </footer>
                 </article>
 
