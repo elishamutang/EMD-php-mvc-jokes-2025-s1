@@ -17,6 +17,7 @@
 namespace App\controllers;
 
 use Framework\Database;
+use Framework\Session;
 
 class StaticPageController
 {
@@ -51,9 +52,11 @@ class StaticPageController
         $simpleRandomSixQuery = 'SELECT * FROM jokes ORDER BY RAND() LIMIT 0,1';
 
         $jokes = $this->db->query($simpleRandomSixQuery)->fetchAll();
+        $user = Session::get('user');
 
         loadView('home', [
-            'joke' => $jokes[0]
+            'joke' => $jokes[0],
+            'user' => $user
         ]);
     }
 

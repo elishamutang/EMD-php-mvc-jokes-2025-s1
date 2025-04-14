@@ -25,7 +25,7 @@ loadPartial('navigation');
 <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
     <article  class="grid grid-cols-1">
         <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-3xl font-bold rounded-t-lg">
-            <h1>HOMEPAGE</h1>
+            <h1><?= $user['nickname']; ?>'s Jokes DB</h1>
         </header>
 
         <section class="my-4 p-4 justify-start">
