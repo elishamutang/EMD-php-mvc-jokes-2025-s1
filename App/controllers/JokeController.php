@@ -49,7 +49,7 @@ class JokeController
      */
     public function index(): void
     {
-        /* Load jokes along with category name. */
+        /* Select each colum from jokes, category name column, and user nickname column using JOIN clause. */
         $sql = "SELECT jokes.*, categories.name AS category_name, users.nickname AS author_nickname 
                 FROM ((jokes 
                     JOIN categories ON jokes.category_id = categories.id)
@@ -59,6 +59,34 @@ class JokeController
         $jokes = $this->db->query($sql)->fetchAll();
 
         loadView('jokes/index', [
+            'jokes' => $jokes
+        ]);
+    }
+
+    /**
+     * Search jokes by keywords
+     *
+     * @return void
+     */
+    public function search():void
+    {
+        $keywords = isset($_GET['keywords']) ? trim($_GET['keywords']) : '';
+
+        /* Select each column from jokes, category name column and user nickname column using JOIN clause where jokes body matches keywords */
+        $query = "SELECT jokes.*, categories.name AS category_name, users.nickname AS author_nickname 
+                  FROM ((jokes 
+                      JOIN categories ON jokes.category_id = categories.id)
+                      JOIN users ON jokes.author_id = users.id)
+                  WHERE jokes.body LIKE :keywords";
+
+        $params = [
+            'keywords' => "%{$keywords}%" // '%' represents zero, one, or multiple characters. To be used in conjunction with LIKE in query above.
+        ];
+
+        $jokes = $this->db->query($query, $params)->fetchAll();
+
+        loadView('/jokes/index', [
+            'keywords' => $keywords,
             'jokes' => $jokes
         ]);
     }

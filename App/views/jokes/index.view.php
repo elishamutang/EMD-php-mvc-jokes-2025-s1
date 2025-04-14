@@ -60,14 +60,20 @@ loadPartial('navigation');
                         </div>
                     </section>
 
-                    <footer class="-mx-2 bg-zinc-200 text-zinc-900 text-sm px-4 py-4 -mb-2 rounded-b flex-0 flex items-center gap-2">
-                        Tags:
-                        <?php
+                    <footer class="-mx-2 bg-zinc-200 text-zinc-900 text-sm px-4 py-4 -mb-2 rounded-b flex justify-between flex-0">
+                        <div class="flex items-center gap-2">
+                            Tags:
+                            <?php
                             $tags = explode(',', $joke->tags);
                             foreach($tags as $tag) {
                                 echo "<div class='ml-2 my-1 rounded text-gray-700 bg-gray-300 px-2 py-1'>{$tag}</div>";
                             };
-                        ?>
+                            ?>
+                        </div>
+                        <a href="/jokes/<?= $joke->id ?>"
+                           class="btn flex flex-wrap">
+                            More details...
+                        </a>
                     </footer>
                 </article>
 
