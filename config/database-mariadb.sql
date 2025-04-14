@@ -284,22 +284,22 @@ INSERT INTO `EMD_SaaS_FED_2025_S1`.`jokes`(`id`, `title`, `body`, `category_id`,
                                                 `author_id`, `created_at`, `updated_at`)
 VALUES (1, 'Skeleton Fight',
         '&lt;p&gt;Why don\'t skeletons fight each other?&lt;/p&gt;&lt;p&gt;They don\'t have the guts.&lt;/p&gt;',
-        7, 'spooky,funny', 1, now(), null),
+        7, 'spooky,funny', 10, now(), null),
        (2, 'Parallel Lines',
         '&lt;p&gt;Parallel lines have so much in common.&lt;/p&gt;&lt;p&gt;It\'s a shame they\'ll never meet.&lt;/p&gt;',
-        9, 'geometry,puns', 105, now(), null),
+        9, 'geometry,puns', 100, now(), null),
        (3, 'Embracing Mistakes',
         '&lt;p&gt;I told my wife she should embrace her mistakes.&lt;/p&gt;&lt;p&gt;She gave me a hug.&lt;/p&gt;',
-        11, 'relationships,dad jokes', 104, now(), null),
+        11, 'relationships,dad jokes', 20, now(), null),
        (4, 'Broken Pencil',
         '&lt;p&gt;I was going to tell a joke about a broken pencil, but it was pointless.&lt;/p&gt;',
-        11, 'puns,funny', 103, now(), null),
+        11, 'puns,funny', 30, now(), null),
        (5, 'Light Sleeper',
         '&lt;p&gt;I told my wife she should stop sleeping in the fridge.&lt;/p&gt;&lt;p&gt;She said she\'s just a light sleeper.&lt;/p&gt;',
-        11, 'sleep,puns', 105, now(), null),
+        11, 'sleep,puns', 101, now(), null),
        (6, 'Elevator Business',
         '&lt;p&gt;I\'m thinking of starting a business installing elevators.&lt;/p&gt;&lt;p&gt;I hear it has its ups and downs.&lt;/p&gt;',
-        11, 'work,puns', 104, now(), null);
+        11, 'work,puns', 102, now(), null);
 
 -- =======================================> END SECTION <======================================
 
