@@ -19,7 +19,6 @@ $router->get('/', 'StaticPageController@index');
 $router->get('/dashboard', 'HomeController@dashboard', ['auth']);
 $router->get('/edit', 'HomeController@edit', ['auth']);
 $router->get('/about', 'StaticPageController@about');
-$router->get('/jokes', 'JokeController@index', ['auth']);
 
 $router->get('/auth/register', 'UserController@create', ['guest']);
 $router->get('/auth/login', 'UserController@login', ['guest']);
@@ -28,6 +27,9 @@ $router->post('/auth/register', 'UserController@store', ['guest']);
 $router->post('/auth/logout', 'UserController@logout', ['auth']);
 $router->post('/auth/login', 'UserController@authenticate', ['guest']);
 $router->post('/edit', 'UserController@update');
+
+$router->get('/jokes', 'JokeController@index', ['auth']);
+$router->get('/jokes/search', 'JokeController@search');
 
 /**
  * Example Routes for a feature (Feature)
