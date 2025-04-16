@@ -296,7 +296,7 @@ VALUES (1, 'Skeleton Fight',
         11, 'puns,funny', 30, now(), null),
        (5, 'Light Sleeper',
         '&lt;p&gt;I told my wife she should stop sleeping in the fridge.&lt;/p&gt;&lt;p&gt;She said she\'s just a light sleeper.&lt;/p&gt;',
-        11, 'sleep,puns', 101, now(), null),
+        11, 'sleep,puns', 117, now(), null),
        (6, 'Elevator Business',
         '&lt;p&gt;I\'m thinking of starting a business installing elevators.&lt;/p&gt;&lt;p&gt;I hear it has its ups and downs.&lt;/p&gt;',
         11, 'work,puns', 102, now(), null);
