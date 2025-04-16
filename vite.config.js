@@ -3,10 +3,10 @@
  *
  * Filename:        vite.config.js
  * Location:        /
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    2025-03-13
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    03/04/2025
  *
- * Author:          Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  */
 
 import {defineConfig} from 'vite'
