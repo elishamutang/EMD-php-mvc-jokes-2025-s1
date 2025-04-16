@@ -32,6 +32,7 @@ $router->get('/jokes', 'JokeController@index', ['auth']);
 $router->get('/jokes/search', 'JokeController@search');
 $router->get('/jokes/{id}', 'JokeController@show');
 $router->get('/jokes/edit/{id}', 'JokeController@edit', ['auth']);
+$router->put('/jokes/{id}', 'JokeController@update', ['auth']);
 
 /**
  * Example Routes for a feature (Feature)
