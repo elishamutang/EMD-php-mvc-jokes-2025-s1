@@ -122,9 +122,39 @@ class JokeController
      *
      * @return void
      */
-    public function edit():void
+    public function edit(array $params):void
     {
-        loadView('/jokes/edit');
+        $id = $params['id'] ?? '';
+
+        $query = "SELECT jokes.*, categories.name AS category_name, users.given_name AS author_given_name, users.family_name AS author_family_name 
+                  FROM ((jokes 
+                      JOIN categories ON jokes.category_id = categories.id)
+                      JOIN users ON jokes.author_id = users.id)
+                  WHERE jokes.id = :id";
+
+        $params = [
+            'id' => $id
+        ];
+
+        $joke = $this->db->query($query, $params)->fetch();
+
+        $categories = $this->db->query("SELECT name FROM categories")->fetchAll();
+
+        loadView('/jokes/edit', [
+            'categories' => $categories,
+            'joke' => $joke
+        ]);
     }
 
+    /**
+     * Update joke details
+     * @return void
+     */
+    public function update():void
+    {
+        // Get submitted values
+        $title = $_POST['title'] ?? null;
+        $description = $_POST['description'] ?? null;
+        $category = $_POST['category'] ?? null;
+    }
 }

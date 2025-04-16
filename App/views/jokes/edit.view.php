@@ -22,6 +22,7 @@ loadPartial('navigation');
 ?>
     <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
     <script src="/assets/js/editor.js"></script>
+    <script src="/assets/js/tags.js"></script>
 
     <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
         <article>
@@ -49,25 +50,45 @@ loadPartial('navigation');
                     </h2>
 
                     <div class="mb-4">
-                        <label for="Name">Name:</label>
-                        <input id="Name" type="text" name="name" placeholder="joke Name"
+                        <label for="Title">Title:</label>
+                        <input id="Title" type="text" name="title" placeholder="Title Name"
                                class="w-full px-4 py-2 border rounded focus:outline-none"
-                               value="<?= $joke->name ?? '' ?>"/>
+                               value="<?= $joke->title ?? '' ?>"/>
                     </div>
 
                     <div class="mb-4">
-                        <label for="Description">Description:</label>
+                        <label for="Description">Body:</label>
                         <div id="toolbar"></div>
-                        <textarea id="Description" name="description" placeholder="joke Description"
+                        <textarea id="Description" name="description" placeholder="Joke Body"
                                   class="w-full px-4 py-2 border border-zinc-500 rounded focus:outline-none"
-                        ><?= $joke->description ?? '' ?></textarea>
+                        ><?= $joke->body ?? '' ?></textarea>
                     </div>
 
                     <div class="mb-4">
-                        <label for="Price">Price $:</label>
-                        <input id="Price" type="text" name="price" placeholder="Price"
-                               class="w-full px-4 py-2 border rounded focus:outline-none"
-                               value="<?= $joke->price != null ? ($joke->price / 100) : '' ?>"/>
+                        <label for="Category" class="mr-2">Category:</label>
+                        <select id="Category" name="category" class="rounded-sm border">
+                            <?php foreach($categories as $category): ?>
+                                <?php if ($category->name === $joke->category_name): ?>
+                                    <option value="<?=$category->name?>" selected><?= ucfirst($category->name) ?></option>
+                                <?php else : ?>
+                                    <option value="<?= $category->name ?>"><?= ucfirst($category->name) ?></option>
+                                <?php endif ?>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="Tags">Tags:</label>
+                        <div id="tags" class="flex gap-2">
+                            <?php foreach(explode(',', $joke->tags) as $tag):  ?>
+                                <div id="<?= $tag ?>" class="flex gap-1 items-center text-sm border border-gray rounded-sm bg-gray-200 px-2 py-1">
+                                    <span><?= $tag ?></span>
+                                    <button type="button" class="remove-tag cursor-pointer">
+                                        <i class="fa-solid fa-circle-xmark fa-lg" style="color: #b0b0b0;"></i>
+                                    </button>
+                                </div>
+                            <?php endforeach ?>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-4 gap-8">
