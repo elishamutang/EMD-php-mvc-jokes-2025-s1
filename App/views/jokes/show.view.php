@@ -63,7 +63,9 @@ loadPartial('navigation');
                     Tags:
                 </h5>
                 <p class="mt-4 col-span-1 md:col-span-3 text-lg">
-                    <?= str_replace([','], [', '], $joke->tags) ?>
+                    <?php foreach(explode(',', $joke->tags) as $tag):  ?>
+                        <span class="text-sm border border-gray rounded-sm bg-gray-200 px-2 py-1"><?= $tag ?></span>
+                    <?php endforeach ?>
                 </p>
             </section>
 
