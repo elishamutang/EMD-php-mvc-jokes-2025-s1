@@ -117,4 +117,14 @@ class JokeController
         ]);
     }
 
+    /**
+     * Edit joke details
+     *
+     * @return void
+     */
+    public function edit():void
+    {
+        loadView('/jokes/edit');
+    }
+
 }

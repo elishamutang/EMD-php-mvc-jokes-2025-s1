@@ -26,10 +26,10 @@ loadPartial('navigation');
     <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
         <article>
             <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 mb-8 flex">
-                <h1 class="grow text-2xl font-bold ">Products - Edit</h1>
+                <h1 class="grow text-2xl font-bold ">Jokes - Edit</h1>
                 <p class="text-md px-8 py-2 bg-prussianblue-500 hover:bg-prussianblue-600 text-white
                           rounded transition ease-in-out duration-500">
-                    <a href="/products/create">Add Product</a>
+                    <a href="/jokes/create">Add Joke</a>
                 </p>
             </header>
 
@@ -41,33 +41,33 @@ loadPartial('navigation');
                     'errors' => $errors ?? []
                 ]) ?>
 
-                <form id="ProductForm" method="POST" action="/products/<?= $product->id ?>">
+                <form id="jokeForm" method="POST" action="/jokes/<?= $joke->id ?>">
                     <input type="hidden" name="_method" value="PUT">
 
                     <h2 class="text-2xl font-bold mb-6 text-left text-gray-500">
-                        Product Information
+                        Joke Information
                     </h2>
 
                     <div class="mb-4">
                         <label for="Name">Name:</label>
-                        <input id="Name" type="text" name="name" placeholder="Product Name"
+                        <input id="Name" type="text" name="name" placeholder="joke Name"
                                class="w-full px-4 py-2 border rounded focus:outline-none"
-                               value="<?= $product->name ?? '' ?>"/>
+                               value="<?= $joke->name ?? '' ?>"/>
                     </div>
 
                     <div class="mb-4">
                         <label for="Description">Description:</label>
                         <div id="toolbar"></div>
-                        <textarea id="Description" name="description" placeholder="Product Description"
+                        <textarea id="Description" name="description" placeholder="joke Description"
                                   class="w-full px-4 py-2 border border-zinc-500 rounded focus:outline-none"
-                        ><?= $product->description ?? '' ?></textarea>
+                        ><?= $joke->description ?? '' ?></textarea>
                     </div>
 
                     <div class="mb-4">
                         <label for="Price">Price $:</label>
                         <input id="Price" type="text" name="price" placeholder="Price"
                                class="w-full px-4 py-2 border rounded focus:outline-none"
-                               value="<?= $product->price != null ? ($product->price / 100) : '' ?>"/>
+                               value="<?= $joke->price != null ? ($joke->price / 100) : '' ?>"/>
                     </div>
 
                     <div class="grid grid-cols-4 gap-8">
@@ -78,7 +78,7 @@ loadPartial('navigation');
                             <span>Save</span>
                         </button>
 
-                        <a href="/products"
+                        <a href="/jokes"
                            class="text-center w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2
                                   rounded focus:outline-none flex justify-center">
                             <i class="fa fa-cancel inline-block mr-4"></i>

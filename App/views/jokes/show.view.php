@@ -73,21 +73,21 @@ loadPartial('navigation');
                 <form method="POST"
                       class="px-4 py-4 mt-4 -mx-4 border-0 border-t-1 border-zinc-300 text-lg flex flex-row gap-8">
 
-                    <a href="/products/edit/<?= $joke->id ?>"
+                    <a href="/jokes/edit/<?= $joke->id ?>"
                        class="ml-8 px-16 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded transition ease-in-out duration-500">
                         <i class="fa fa-pen inline-block mr-2"></i>
                         Edit
                     </a>
 
-                    <a href="/products/"
+                    <a href="/jokes/"
                        class="px-16 py-2 bg-prussianblue-500 hover:bg-prussianblue-700 text-white rounded transition ease-in-out duration-500">
                         <i class="fa fa-list inline-block mr-2"></i>
-                        All Products
+                        All Jokes
                     </a>
 
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit"
-                            class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded transition ease-in-out duration-500">
+                            class="cursor-pointer px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded transition ease-in-out duration-500">
                         <i class="fa fa-times inline-block mr-2"></i>
                         Delete
                     </button>
