@@ -168,7 +168,7 @@ class UserController
      *
      * @return void
      */
-    public function update()
+    public function update():void
     {
         // Get current user
         $user = Session::get('user');
