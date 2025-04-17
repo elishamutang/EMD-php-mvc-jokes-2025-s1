@@ -79,9 +79,9 @@ loadPartial('navigation');
 
                     <div class="mb-4">
                         <label for="Tags">Tags:</label>
-                        <div id="tags" class="flex gap-2">
+                        <div id="tags-container" class="flex gap-2 mb-2">
                             <?php foreach(explode(',', $joke->tags) as $tag):  ?>
-                                <div id="<?= $tag ?>" class="flex gap-1 items-center text-sm border border-gray rounded-sm bg-gray-200 px-2 py-1">
+                                <div id="<?= $tag ?>" class="tag flex gap-1 items-center text-sm border border-gray rounded-sm bg-gray-200 px-2 py-1">
                                     <span><?= $tag ?></span>
                                     <button type="button" class="remove-tag cursor-pointer">
                                         <i class="fa-solid fa-circle-xmark fa-lg" style="color: #b0b0b0;"></i>
@@ -89,6 +89,7 @@ loadPartial('navigation');
                                 </div>
                             <?php endforeach ?>
                         </div>
+                        <input id="Tags" type="text" name="tags" placeholder="Enter a tag" class="w-full px-4 py-2 border rounded focus:outline-none"/>
                     </div>
 
                     <div class="grid grid-cols-4 gap-8">
