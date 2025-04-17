@@ -17,6 +17,7 @@
 namespace App\controllers;
 
 use Framework\Database;
+use Framework\Validation;
 
 class JokeController
 {
@@ -119,15 +120,15 @@ class JokeController
 
     /**
      * Edit joke details
-     *
+     * @param array $params
      * @return void
      */
     public function edit(array $params):void
     {
         $id = $params['id'] ?? '';
 
-        $query = "SELECT jokes.*, categories.name AS category_name, users.given_name AS author_given_name, users.family_name AS author_family_name 
-                  FROM ((jokes 
+        $query = "SELECT jokes.*, categories.name AS category_name, users.given_name AS author_given_name, users.family_name AS author_family_name
+                  FROM ((jokes
                       JOIN categories ON jokes.category_id = categories.id)
                       JOIN users ON jokes.author_id = users.id)
                   WHERE jokes.id = :id";
@@ -148,13 +149,52 @@ class JokeController
 
     /**
      * Update joke details
+     * @param array $params
      * @return void
      */
-    public function update():void
+    public function update(array $params):void
     {
-        // Get submitted values
-        $title = $_POST['title'] ?? null;
-        $description = $_POST['description'] ?? null;
-        $category = $_POST['category'] ?? null;
+        // Get submitted form value.
+        $updated_fields = [
+            'title' => $_POST['title'] ?? null,
+            'body' => $_POST['body'] ?? null,
+            'category_name' => $_POST['category_name'] ?? null,
+            'tags' => $_POST['tags'] ?? null
+        ];
+
+        // Get joke.
+        $id = $params['id'] ?? null;
+
+        $params = [
+            'id' => $id
+        ];
+
+        $query = "SELECT * FROM jokes WHERE id = :id";
+
+        $joke = $this->db->query($query, $params)->fetch();
+
+        // Store any input errors.
+        $errors = [];
+
+        // Validate user input.
+        // Title cannot be empty.
+        if(!Validation::string($updated_fields['title'])) {
+            $errors['title'] = 'Please enter a title.';
+        }
+
+        // Body cannot be empty.
+        if(!Validation::string($updated_fields['body'])) {
+            $errors['body'] = 'Please enter your joke.';
+        }
+
+        // No duplicate tags allowed.
+        $current_tags = explode(',', $joke->tags);
+        $new_tags = array_diff($current_tags, $updated_fields['tags']);
+
+        if(!empty($new_tag)) {
+            $current_tags = array_merge($current_tags, $new_tags);
+        }
+
+
     }
 }
