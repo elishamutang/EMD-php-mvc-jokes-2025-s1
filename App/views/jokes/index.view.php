@@ -50,7 +50,14 @@ loadPartial('navigation');
                 <article class=" bg-white border border-zinc-400 shadow rounded flex flex-col overflow-hidden">
                     <header class="-mx-2 bg-zinc-700 text-zinc-200 text-lg p-4 rounded-t flex-0">
                         <h4>
-                            <?= $joke->title ?> by <?= $joke->author_nickname ?>
+                            <?php if(Framework\Authorisation::isOwner($joke->author_id)): ?>
+                                <?= $joke->title ?> by
+                                <span class="text-gray-400"><?= $joke->author_nickname ?></span>
+                                <span class="text-sm ml-2 my-1 rounded bg-prussianblue-500 text-white px-2 py-1">You</span>
+                            <?php else: ?>
+                                <?= $joke->title ?> by
+                                <span class="text-gray-400"><?= $joke->author_nickname ?></span>
+                            <?php endif ?>
                         </h4>
                     </header>
 
