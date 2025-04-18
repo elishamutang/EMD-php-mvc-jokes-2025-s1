@@ -1,17 +1,15 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Edit details of joke.
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Allows a user to edit their own jokes.
  *
- * Filename:        index.view.php
- * Location:        ${FILE_LOCATION}
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    20/08/2024
+ * Filename:        edit.view.php
+ * Location:        App/views/jokes
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    13/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 
@@ -59,7 +57,7 @@ loadPartial('navigation');
                     <div class="mb-4">
                         <label for="Description">Body:</label>
                         <div id="toolbar"></div>
-                        <textarea id="Description" name="description" placeholder="Joke Body"
+                        <textarea id="Description" name="description" placeholder="Joke Description"
                                   class="w-full px-4 py-2 border border-zinc-500 rounded focus:outline-none"
                         ><?= $joke->body ?? '' ?></textarea>
                     </div>
@@ -68,7 +66,7 @@ loadPartial('navigation');
                         <label for="Category" class="mr-2">Category:</label>
                         <select id="Category" name="category" class="rounded-sm border">
                             <?php foreach($categories as $category): ?>
-                                <?php if ($category->name === $joke->category_name): ?>
+                                <?php if ($category->id === $joke->category_id): ?>
                                     <option value="<?=$category->name?>" selected><?= ucfirst($category->name) ?></option>
                                 <?php else : ?>
                                     <option value="<?= $category->name ?>"><?= ucfirst($category->name) ?></option>
@@ -89,7 +87,7 @@ loadPartial('navigation');
                                 </div>
                             <?php endforeach ?>
                         </div>
-                        <input id="Tags" type="text" name="tags" placeholder="Enter a tag" class="w-full px-4 py-2 border rounded focus:outline-none"/>
+                        <input id="Tags" type="text" name="tags" placeholder="Enter a tag (multiple tags must be separated by a comma)" class="w-full px-4 py-2 border rounded focus:outline-none"/>
                     </div>
 
                     <div class="grid grid-cols-4 gap-8">

@@ -18,6 +18,7 @@ namespace App\controllers;
 
 use Framework\Database;
 use Framework\Validation;
+use League\HTMLToMarkdown\HtmlConverter;
 
 class JokeController
 {
@@ -127,7 +128,7 @@ class JokeController
     {
         $id = $params['id'] ?? '';
 
-        $query = "SELECT jokes.*, categories.name AS category_name, users.given_name AS author_given_name, users.family_name AS author_family_name
+        $query = "SELECT jokes.*, users.given_name AS author_given_name, users.family_name AS author_family_name
                   FROM ((jokes
                       JOIN categories ON jokes.category_id = categories.id)
                       JOIN users ON jokes.author_id = users.id)
@@ -139,7 +140,7 @@ class JokeController
 
         $joke = $this->db->query($query, $params)->fetch();
 
-        $categories = $this->db->query("SELECT name FROM categories")->fetchAll();
+        $categories = $this->db->query("SELECT * FROM categories")->fetchAll();
 
         loadView('/jokes/edit', [
             'categories' => $categories,
@@ -154,14 +155,6 @@ class JokeController
      */
     public function update(array $params):void
     {
-        // Get submitted form value.
-        $updated_fields = [
-            'title' => $_POST['title'] ?? null,
-            'body' => $_POST['body'] ?? null,
-            'category_name' => $_POST['category_name'] ?? null,
-            'tags' => $_POST['tags'] ?? null
-        ];
-
         // Get joke.
         $id = $params['id'] ?? null;
 
@@ -169,9 +162,23 @@ class JokeController
             'id' => $id
         ];
 
-        $query = "SELECT * FROM jokes WHERE id = :id";
+        $joke_query = "SELECT * FROM jokes WHERE id = :id";
+        $joke = $this->db->query($joke_query, $params)->fetch();
 
-        $joke = $this->db->query($query, $params)->fetch();
+        // Get submitted form values.
+        $updated_fields = [
+            'title' => $_POST['title'] ?? null,
+            'body' => $_POST['description'] ?? null,
+            'category' => $_POST['category'] ?? null,
+            'tags' => $_POST['tags'] ?? null
+        ];
+
+        // Convert joke description from HTML to markdown to get text only.
+        $converter = new HtmlConverter();
+        $updated_fields['body'] = $converter->convert($updated_fields['body']);
+
+        $categories_query = "SELECT * FROM categories";
+        $categories = $this->db->query($categories_query)->fetchAll();
 
         // Store any input errors.
         $errors = [];
@@ -179,21 +186,56 @@ class JokeController
         // Validate user input.
         // Title cannot be empty.
         if(!Validation::string($updated_fields['title'])) {
-            $errors['title'] = 'Please enter a title.';
+            $errors['title'] = 'Title cannot be blank!';
         }
 
-        // Body cannot be empty.
+        // Description cannot be empty.
         if(!Validation::string($updated_fields['body'])) {
-            $errors['body'] = 'Please enter your joke.';
+            $errors['description'] = 'Body cannot be blank!';
         }
+
+        // Re-load edit page with joke details and error message if title or description is blank.
+        if(!empty($errors)) {
+            loadView('/jokes/edit', [
+                'joke' => $joke,
+                'errors' => $errors,
+                'categories' => $categories
+            ]);
+            exit;
+        }
+
+        // Prepare to update tags.
+        $current_tags = explode(',', $joke->tags);
+        $input_tags = trim($updated_fields['tags']);
+
+        $updated_tags = empty($input_tags) ? $current_tags : explode(',', $input_tags);
 
         // No duplicate tags allowed.
-        $current_tags = explode(',', $joke->tags);
-        $new_tags = array_diff($current_tags, $updated_fields['tags']);
+        $new_tags = array_diff($updated_tags, $current_tags);
 
-        if(!empty($new_tag)) {
-            $current_tags = array_merge($current_tags, $new_tags);
+        if(!empty($new_tags)) {
+            $updated_fields['tags'] = implode(',', array_merge($current_tags, $new_tags));
+        } else {
+            $updated_fields['tags'] = $joke->tags;
         }
+
+        $params = [
+            'id' => $id,
+            'title' => $updated_fields['title'],
+            'body' => $updated_fields['body'],
+            'tags' => $updated_fields['tags']
+        ];
+
+        // Update in database
+        $update_query = "UPDATE jokes SET title = :title, body = :body, tags = :tags WHERE id = :id";
+        $this->db->query($update_query, $params);
+
+        loadView('/jokes/edit', [
+            'joke' => $joke,
+            'categories' => $categories,
+            'updated_fields' => $updated_fields,
+            'updated_tags' => $updated_tags
+        ]);
 
 
     }
