@@ -18,7 +18,9 @@ namespace App\controllers;
 
 use Framework\Database;
 use Framework\Validation;
+use Framework\Session;
 use League\HTMLToMarkdown\HtmlConverter;
+use League\CommonMark\CommonMarkConverter;
 
 class JokeController
 {
@@ -162,7 +164,11 @@ class JokeController
             'id' => $id
         ];
 
-        $joke_query = "SELECT * FROM jokes WHERE id = :id";
+        $joke_query = "SELECT jokes.*, categories.name AS category_name, users.given_name AS author_given_name, users.family_name AS author_family_name
+                  FROM ((jokes
+                      JOIN categories ON jokes.category_id = categories.id)
+                      JOIN users ON jokes.author_id = users.id)
+                  WHERE jokes.id = :id";
         $joke = $this->db->query($joke_query, $params)->fetch();
 
         // Get submitted form values.
@@ -172,6 +178,9 @@ class JokeController
             'category' => $_POST['category'] ?? null,
             'tags' => $_POST['tags'] ?? null
         ];
+
+        // Get updated category id
+        $category_id = $this->db->query("SELECT id FROM categories WHERE name = :name", ['name' => $updated_fields['category']])->fetch();
 
         // Convert joke description from HTML to markdown to get text only.
         $converter = new HtmlConverter();
@@ -183,16 +192,25 @@ class JokeController
         // Store any input errors.
         $errors = [];
 
-        // Validate user input.
-        // Title cannot be empty.
+        /*
+         * Validation
+         * Joke title, body, and tags cannot be left empty.
+         */
         if(!Validation::string($updated_fields['title'])) {
             $errors['title'] = 'Title cannot be blank!';
         }
 
-        // Description cannot be empty.
         if(!Validation::string($updated_fields['body'])) {
             $errors['description'] = 'Body cannot be blank!';
         }
+
+        if(!Validation::string($updated_fields['tags'])) {
+            $errors['tags'] = 'Tags must contain at least 1 tag.';
+        }
+
+        // Convert joke description from markdown to HTML entities to store in DB.
+        $markdown_converter = new CommonMarkConverter();
+        $updated_fields['body'] = htmlentities($markdown_converter->convert($updated_fields['body'])->getContent(), ENT_COMPAT);
 
         // Re-load edit page with joke details and error message if title or description is blank.
         if(!empty($errors)) {
@@ -205,38 +223,31 @@ class JokeController
         }
 
         // Prepare to update tags.
-        $current_tags = explode(',', $joke->tags);
-        $input_tags = trim($updated_fields['tags']);
+        $input_tags = str_replace(' ', '', trim($updated_fields['tags']));
+        $input_tags_arr = explode(',', $input_tags);
 
-        $updated_tags = empty($input_tags) ? $current_tags : explode(',', $input_tags);
+        // Get unique values only
+        $input_tags_unique = array_unique($input_tags_arr);
 
-        // No duplicate tags allowed.
-        $new_tags = array_diff($updated_tags, $current_tags);
-
-        if(!empty($new_tags)) {
-            $updated_fields['tags'] = implode(',', array_merge($current_tags, $new_tags));
-        } else {
-            $updated_fields['tags'] = $joke->tags;
-        }
+        // Update tags.
+        $updated_fields['tags'] = implode(',', $input_tags_unique);
 
         $params = [
             'id' => $id,
             'title' => $updated_fields['title'],
             'body' => $updated_fields['body'],
+            'category' => $category_id->id,
             'tags' => $updated_fields['tags']
         ];
 
-        // Update in database
-        $update_query = "UPDATE jokes SET title = :title, body = :body, tags = :tags WHERE id = :id";
+        // Update joke details in database.
+        $update_query = "UPDATE jokes SET title = :title, body = :body, category_id = :category, tags = :tags WHERE id = :id";
         $this->db->query($update_query, $params);
 
-        loadView('/jokes/edit', [
-            'joke' => $joke,
-            'categories' => $categories,
-            'updated_fields' => $updated_fields,
-            'updated_tags' => $updated_tags
-        ]);
+        // Set flash message.
+        Session::setFlashMessage('success_message', 'Joke updated');
 
+        redirect("/jokes/{$id}");
 
     }
 }

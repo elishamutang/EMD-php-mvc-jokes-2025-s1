@@ -20,7 +20,6 @@ loadPartial('navigation');
 ?>
     <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
     <script src="/assets/js/editor.js"></script>
-    <script src="/assets/js/tags.js"></script>
 
     <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
         <article>
@@ -76,18 +75,9 @@ loadPartial('navigation');
                     </div>
 
                     <div class="mb-4">
-                        <label for="Tags">Tags:</label>
-                        <div id="tags-container" class="flex gap-2 mb-2">
-                            <?php foreach(explode(',', $joke->tags) as $tag):  ?>
-                                <div id="<?= $tag ?>" class="tag flex gap-1 items-center text-sm border border-gray rounded-sm bg-gray-200 px-2 py-1">
-                                    <span><?= $tag ?></span>
-                                    <button type="button" class="remove-tag cursor-pointer">
-                                        <i class="fa-solid fa-circle-xmark fa-lg" style="color: #b0b0b0;"></i>
-                                    </button>
-                                </div>
-                            <?php endforeach ?>
-                        </div>
-                        <input id="Tags" type="text" name="tags" placeholder="Enter a tag (multiple tags must be separated by a comma)" class="w-full px-4 py-2 border rounded focus:outline-none"/>
+                        <label for="Tags">Tags: </label>
+                        <p class="text-sm py-1 text-gray-500 italic">Multiple tags must be separated by a comma (",")</p>
+                        <input id="Tags" type="text" name="tags" value="<?= $joke->tags ?>" class="w-full px-4 py-2 border rounded focus:outline-none"/>
                     </div>
 
                     <div class="grid grid-cols-4 gap-8">
