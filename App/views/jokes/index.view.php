@@ -2,9 +2,8 @@
 /**
  * Index page to browse, read, edit, add, update or delete jokes.
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * A jokes dashboard for authenticated users to browse, read, edit,
+ * add, update or delete jokes.
  *
  * Filename:        index.view.php
  * Location:        App/views/jokes

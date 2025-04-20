@@ -2,9 +2,7 @@
 /**
  * Create and add new joke.
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Adds a new joke to the web application.
  *
  * Filename:        create.view.php
  * Location:        App/views/jokes
