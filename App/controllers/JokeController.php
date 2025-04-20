@@ -250,4 +250,98 @@ class JokeController
         redirect("/jokes/{$id}");
 
     }
+
+    /**
+     * Create new joke.
+     * @return void
+     */
+    public function create():void
+    {
+        // Get all categories
+        $categories = $this->db->query("SELECT * FROM categories")->fetchAll();
+
+        loadView('/jokes/create', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function store():void
+    {
+        // Get submitted values.
+        $title = $_POST['title'] ?? null;
+        $author = $_POST['name'] ?? null;
+        $body = $_POST['description'] ?? null;
+        $category = $_POST['category'] ?? null;
+        $tags = $_POST['tags'] ?? null;
+
+        // Get all categories
+        $categories = $this->db->query("SELECT * FROM categories")->fetchAll();
+
+        // Errors
+        $errors = [];
+
+        // Convert joke description from HTML to markdown to get text only.
+        $converter = new HtmlConverter();
+        $body = $converter-> convert($body);
+
+        /*
+         * Validation
+         * Joke title, author, body, and tags cannot be left empty.
+         */
+        if(!Validation::string($title)) {
+            $errors['title'] = 'Title cannot be blank!';
+        }
+
+        if(!Validation::string($author)) {
+            $errors['author'] = 'Author name cannot be blank!';
+        }
+
+        if(!Validation::string($body)) {
+            $errors['description'] = 'Body cannot be blank!';
+        }
+
+        if(!Validation::string($tags)) {
+            $errors['tags'] = 'Tags must contain at least 1 tag.';
+        }
+
+        // Re-load create form if $errors array is not empty.
+        if(!empty($errors)) {
+            loadView('/jokes/create', [
+                'errors' => $errors,
+                'categories' => $categories,
+                'joke' => [
+                    'title' => $title,
+                    'author' => $author,
+                    'body' => $body,
+                    'category' => $category,
+                    'tags' => $tags
+                ]
+            ]);
+            exit;
+        }
+
+        // Get category id
+        $category_id = $this->db->query("SELECT id FROM categories WHERE name = :name", ['name' => $category])->fetch();
+
+        // Transform joke body back to HTML and subsequently to its HTML entities to store in DB.
+        $markdown_converter = new CommonMarkConverter();
+        $body = htmlentities($markdown_converter->convert($body)->getContent(), ENT_COMPAT);
+
+        // Add joke to database.
+        $params = [
+            'title' => $title,
+            'author' => Session::get('user')['id'],
+            'body' => $body,
+            'category_id' => $category_id->id,
+            'tags' => $tags
+        ];
+
+        $query = "INSERT INTO jokes (title, body, category_id, tags, author_id) VALUES (:title, :body, :category_id, :tags, :author)";
+
+        Session::setFlashMessage('success_message', 'Joke added successfully!');
+
+        $this->db->query($query, $params);
+
+        redirect('/jokes');
+    }
 }

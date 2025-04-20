@@ -23,9 +23,9 @@ loadPartial('navigation');
 <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
     <article>
         <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 mb-8 flex rounded-t-lg">
-            <h1 class="grow text-2xl font-bold  rounded-t-lg">Joke - Detail</h1>
+            <h1 class="grow text-2xl font-bold rounded-t-lg">Joke - Detail</h1>
             <p class="text-md px-8 py-2 bg-prussianblue-500 hover:bg-prussianblue-600 text-white rounded transition ease-in-out duration-500">
-                <a href="/products/create">Add Joke</a>
+                <a href="/jokes/create">Add Joke</a>
             </p>
 
         </header>
