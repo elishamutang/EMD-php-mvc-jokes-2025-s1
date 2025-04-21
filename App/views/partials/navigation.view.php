@@ -2,12 +2,15 @@
 /**
  * Page 'Header' and Navigation
  *
+ * Navigation component of the web application.
+ * Allows visitors and authenticated users to navigate through the website.
+ *
  * Filename:        navigation.view.php
  * Location:        App/views/partials
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    20/08/2024
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    13/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 
@@ -18,9 +21,9 @@ $authenticated = new Authorise();
 
 <header class="bg-gray-950 text-gray-200 p-4 flex-grow-0 flex flex-row align-middle content-center mb-4">
     <h1 class="flex-0 w-32 text-xl p-4 ">
-        <a href="#"
+        <a href="/"
            class="py-4 px-4 -mx-4 -my-4 font-display font-bold rounded
-             text-pink-500 hover:text-black
+             text-prussianblue-500 hover:text-black
              hover:bg-prussianblue-500
                  transition ease-in-out duration-700">
             JOKEIFY

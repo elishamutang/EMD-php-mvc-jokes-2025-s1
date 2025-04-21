@@ -47,7 +47,7 @@ class StaticPageController
      *
      * @return void
      */
-    public function index()
+    public function index():void
     {
         $simpleRandomSixQuery = 'SELECT * FROM jokes ORDER BY RAND() LIMIT 0,1';
 
@@ -55,7 +55,7 @@ class StaticPageController
         $user = Session::get('user');
 
         loadView('home', [
-            'joke' => $jokes[0],
+            'joke' => $jokes ? $jokes[0] : null,
             'user' => $user
         ]);
     }
@@ -65,7 +65,7 @@ class StaticPageController
      *
      * @return void
      */
-    public function about()
+    public function about():void
     {
         loadView('about');
     }
