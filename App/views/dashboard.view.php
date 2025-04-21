@@ -16,7 +16,7 @@ loadPartial('navigation');
 
 ?>
 
-<main class="container mx-auto bg-gray-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
+<main class="container max-w-9/10 mx-auto bg-gray-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
     <article>
         <header class="bg-gray-700 text-gray-200 -mx-4 -mt-8 p-8 text-2xl font-bold mb-2 rounded-t-lg">
             <h1><?= $user['nickname'] ?>'s Dashboard</h1>

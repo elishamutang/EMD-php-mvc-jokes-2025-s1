@@ -28,4 +28,4 @@
     <link rel="stylesheet" href="/assets/css/all.css">
 
 </head>
-<body class="relative bg-white flex flex-col h-full justify-between">
+<body class="relative bg-white flex flex-col h-full w-full justify-between">

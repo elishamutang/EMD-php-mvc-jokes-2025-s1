@@ -19,7 +19,7 @@ loadPartial('navigation');
 
 ?>
 
-<main class="container max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
+<main class="container md:max-w-3/4 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
     <article  class="grid grid-cols-1">
         <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-3xl font-bold rounded-t-lg">
             <h1 class="grow text-3xl font-bold tracking-widest">ABOUT</h1>
@@ -38,7 +38,7 @@ loadPartial('navigation');
         </section>
     </article>
 
-    <article class="grid grid-cols-2 ">
+    <article class="flex flex-col md:grid md:grid-cols-2">
 
         <section class="m-4 bg-zinc-200 text-zinc-700 p-8 rounded-lg shadow">
             <dl class="flex flex-col gap-2">

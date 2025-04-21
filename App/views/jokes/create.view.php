@@ -20,9 +20,9 @@ loadPartial('navigation');
     <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
     <script src="/assets/js/editor.js"></script>
 
-    <main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
+    <main class="md:max-w-3/4 max-w-9/10 rounded-lg container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
         <article>
-            <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 mb-8 flex">
+            <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 mb-8 flex rounded-t-lg">
                 <h1 class="grow text-2xl font-bold ">Jokes - Add</h1>
 
             </header>
@@ -80,18 +80,18 @@ loadPartial('navigation');
                         <input id="Tags" type="text" name="tags" value="<?= $joke['tags'] ?? '' ?>" class="w-full px-4 py-2 border rounded focus:outline-none"/>
                     </div>
 
-                    <div class="grid grid-cols-4 gap-8">
+                    <div class="flex gap-4 content-center">
                         <button type="submit"
-                                class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2
+                                class="grow md:max-w-1/3 bg-green-500 hover:bg-green-600 text-white px-4 py-2
                                rounded focus:outline-none flex justify-center">
-                            <i class="fa fa-check inline-block mr-4"></i>
+                            <i class="fa fa-check inline-block mr-4 self-center"></i>
                             <span>Save</span>
                         </button>
 
                         <a href="/jokes"
-                           class="text-center w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2
+                           class="text-center grow md:max-w-1/3 bg-red-500 hover:bg-red-600 text-white px-4 py-2
                    rounded focus:outline-none flex justify-center">
-                            <i class="fa fa-cancel inline-block mr-4"></i>
+                            <i class="fa fa-cancel inline-block mr-4 self-center"></i>
                             <span>Cancel</span>
                         </a>
                     </div>

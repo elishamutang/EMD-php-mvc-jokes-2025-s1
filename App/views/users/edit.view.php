@@ -14,7 +14,7 @@
 loadPartial('header');
 loadPartial('navigation'); ?>
 
-<main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg
+<main class="max-w-9/10 md:max-w-1/2 container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg
                  flex justify-center items-center mt-8 w-1/2 ">
 
     <section class="bg-white p-8 rounded-lg shadow-md md:w-500 mx-6 w-full">

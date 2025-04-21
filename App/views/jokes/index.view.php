@@ -21,7 +21,7 @@ loadPartial('navigation');
 
 ?>
 
-<main class="container mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
+<main class="container md:max-w-3/4 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
     <article>
         <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 mb-8 flex rounded-t-lg">
             <h1 class="grow text-3xl font-bold tracking-widest">JOKES</h1>
@@ -35,13 +35,13 @@ loadPartial('navigation');
                 <p>Search Results for: <?= htmlspecialchars($keywords) ?></p>
                 <p><?= count($jokes ?? []) ?> product(s) found</p>
             <?php else : ?>
-                <p>All Jokes</p>
+                <p class="text-2xl">All Jokes</p>
             <?php endif; ?>
 
             <?= loadPartial('message') ?>
         </section>
 
-        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
+        <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
             <?php
             foreach ($jokes ?? [] as $joke):
                 ?>
