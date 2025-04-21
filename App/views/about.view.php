@@ -2,6 +2,9 @@
 /**
  * About Page View
  *
+ * Provides details about the web application, developer, and related programming languages,
+ * servers, and supporting systems.
+ *
  * Filename:        about.view.php
  * Location:        /App/views
  * Project:         EMD-php-mvc-jokes-2025-s1
@@ -26,12 +29,10 @@ loadPartial('navigation');
     <article class="grid grid-cols-1">
         <section class="m-4 bg-zinc-200 text-zinc-700 p-8 rounded-lg shadow">
             <dl class="flex flex-col">
-                <dt class="text-2xl font-semibold ">Overview:</dt>
-                <dd class="ml-4">
-                    <p class="hover:text-black">This is a simple jokes system written using HTML, TailwindCSS, PHP, SQL, and the Model-View-Controller framework.
-                        The system allows users to register, log in, and manage jokes.</p><br>
-                    <p class="hover:text-black">Registered users will be able to add, edit, and delete jokes and update their own details. In addition, the
-                        system will support optional category management.</p>
+                <dt class="text-2xl font-semibold ">Overview <i class="fa-solid fa-list-ul fa-sm"></i> </dt>
+                <dd class="ml-4 mt-2">
+                    <p class="hover:text-black">This is a simple jokes system written using the Model-View-Controller framework with the following technologies
+                        HTML, TailwindCSS, PHP, JavaScript, SQL / MariaDB. Registered users will be able to add, edit, and delete jokes and update their own details.</p>
                 </dd>
             </dl>
         </section>
@@ -42,18 +43,19 @@ loadPartial('navigation');
         <section class="m-4 bg-zinc-200 text-zinc-700 p-8 rounded-lg shadow">
             <dl class="flex flex-col gap-2">
 
-                <dt class="text-2xl font-semibold">The Developer</dt>
-                <dd class="ml-4 flex items-start">
-                    <i class="fa-solid fa-circle-info mr-2 text-base"></i>
-                    <p class="hover:text-black">Hi, my name is Elisha.</p>
+                <dt class="text-2xl font-semibold">The Developer <i class="fa-solid fa-circle-info text-base"></i></dt>
+                <dd class="ml-4 flex flex-col items-start">
+                    <p class="hover:text-black">Elisha is a programming student currently enrolled in the Diploma of Information Technology - Advanced Programming course at
+                    North Metropolitan TAFE, Perth, Western Australia.</p><br>
+                    <p class="hover:text-black">He is skilled in web development and well-versed in technologies such as HTML, CSS, JavaScript, PHP, Python, and SQL.</p>
                 </dd>
             </dl>
         </section>
 
         <section class="m-4 bg-zinc-200 text-zinc-700 p-8 rounded-lg shadow">
             <dl class="flex flex-col">
-                <dt class="text-2xl font-semibold">Technologies:</dt>
-                <dd class="ml-4 flex items-center">
+                <dt class="text-2xl font-semibold">Technologies <i class="fa-solid fa-gear fa-sm"></i></dt>
+                <dd class="ml-4 flex items-center mt-2">
                     <i class="hover:text-black fa fa-code inline-block mr-2 text-sm"></i>
                     <p class="hover:text-black">HTML</p>
                 </dd>
@@ -81,6 +83,21 @@ loadPartial('navigation');
                 <dd class="ml-4 flex items-center">
                     <i class="hover:text-black fa fa-code inline-block mr-2 text-sm"></i>
                     <p class="hover:text-black">MariaDB</p>
+                </dd>
+
+                <dd class="ml-4 flex items-center">
+                    <i class="hover:text-black fa fa-code inline-block mr-2 text-sm"></i>
+                    <p class="hover:text-black">CKEditor5</p>
+                </dd>
+
+                <dd class="ml-4 flex items-center">
+                    <i class="hover:text-black fa fa-code inline-block mr-2 text-sm"></i>
+                    <p class="hover:text-black">HTML to Markdown</p>
+                </dd>
+
+                <dd class="ml-4 flex items-center">
+                    <i class="hover:text-black fa fa-code inline-block mr-2 text-sm"></i>
+                    <p class="hover:text-black">CommonMark</p>
                 </dd>
             </dl>
         </section>
