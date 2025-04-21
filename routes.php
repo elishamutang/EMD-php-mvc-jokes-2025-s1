@@ -36,6 +36,7 @@ $router->get('/jokes/edit/{id}', 'JokeController@edit', ['auth']);
 
 $router->post('/jokes', 'JokeController@store', ['auth']);
 $router->put('/jokes/{id}', 'JokeController@update', ['auth']);
+$router->delete('/jokes/{id}', 'JokeController@destroy', ['auth']);
 
 /**
  * Example Routes for a feature (Feature)

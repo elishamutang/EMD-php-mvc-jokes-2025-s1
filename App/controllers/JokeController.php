@@ -344,4 +344,27 @@ class JokeController
 
         redirect('/jokes');
     }
+
+    /**
+     * Deletes a joke.
+     * @return void
+     */
+    public function destroy(array $params):void
+    {
+        $id = $params['id'] ?? null;
+
+        $params = [
+            'id' => $id
+        ];
+
+        // Get joke to announce in flash message.
+        $joke = $this->db->query("SELECT * FROM jokes WHERE id = :id", $params)->fetch();
+
+        Session::setFlashMessage('success_message', "You successfully deleted {$joke->title}");
+
+        // Delete joke from DB.
+        $this->db->query("DELETE FROM jokes WHERE id = :id", $params);
+
+        redirect('/jokes');
+    }
 }

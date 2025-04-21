@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "vite preview",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "tailwindcss-watcher": "npx tailwindcss -i src/source.css -o public/assets/css/site.css --watch"
   },
   "repository": {
     "type": "git",
@@ -33,8 +34,8 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.13",
     "@tailwindcss/postcss": "^4.0.13",
-    "@tailwindcss/vite": "^4.0.13",
-    "tailwindcss": "^4.0.13",
+    "@tailwindcss/vite": "^4.1.4",
+    "tailwindcss": "^4.1.4",
     "vite-plugin-live-reload": "^3.0.4",
     "vite-plugin-php": "^2.0.1"
   },
