@@ -61,7 +61,7 @@ class StaticPageController
         $users_count_query = "SELECT COUNT(id) AS user_count FROM users";
         $users_count = $this->db->query($users_count_query)->fetchAll();
 
-        // Get count of catergories from categories table in DB.
+        // Get count of categories from categories table in DB.
         $category_count_query = "SELECT COUNT(id) AS category_count FROM categories";
         $category_count = $this->db->query($category_count_query)->fetchAll();
 
