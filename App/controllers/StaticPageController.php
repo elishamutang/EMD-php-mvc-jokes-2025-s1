@@ -50,12 +50,15 @@ class StaticPageController
     public function index():void
     {
         $simpleRandomSixQuery = 'SELECT * FROM jokes ORDER BY RAND() LIMIT 0,1';
+        $jokes_count = "SELECT COUNT(id) AS jokes_count FROM jokes";
 
         $jokes = $this->db->query($simpleRandomSixQuery)->fetchAll();
+        $jokes_count = $this->db->query($jokes_count)->fetchAll();
         $user = Session::get('user');
 
         loadView('home', [
             'joke' => $jokes ? $jokes[0] : null,
+            'jokes_count' => $jokes_count[0]->jokes_count,
             'user' => $user
         ]);
     }

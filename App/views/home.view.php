@@ -22,12 +22,15 @@ if(isset($joke)) {
     $joke_body = str_replace(['<p>', '</p>'], ['', '<br>'], $joke_body);
 }
 
+use Framework\Middleware\Authorise;
+$authenticated = new Authorise();
+
 loadPartial('header');
 loadPartial('navigation');
 
 ?>
 
-<main class="container max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
+<main class="container md:max-w-3/4 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
     <article  class="grid grid-cols-1">
         <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-3xl font-bold rounded-t-lg">
             <?php if (isset($user['nickname'])) : ?>
@@ -43,56 +46,60 @@ loadPartial('navigation');
         </section>
     </article>
 
-    <article  class="flex flex-wrap items-start">
-        <section class="h-full p-4 justify-start">
-            <p class="text-2xl">Generate random joke!</p>
-            <form method="GET" action="/">
-                <button type="submit" class="w-full px-4 py-4 btn-primary text-xl rounded-lg cursor-pointer">Joke</button>
-            </form>
-        </section>
+    <article class="flex flex-col md:grid md:grid-cols-4 gap-4 md:gap-8">
+        <?php if($authenticated->isAuthenticated()): ?>
 
-        <section class="m-4 bg-zinc-200 text-zinc-700 p-8 rounded-lg shadow-xl grow">
+            <article class="flex flex-col">
+                <section class="flex-wrap gap-2 border p-4 border-gray-400 bg-gray-300 rounded-lg shadow-sm">
+                    <h1 class="text-2xl text-wrap text-white rounded-sm py-1 px-2">Current Statistics!</h1>
+                </section>
 
-            <?php if(isset($joke)): ?>
-                <dl class="flex flex-col gap-2">
-                    <dt class="flex text-2xl font-semibold">Featured Joke
-                        <span class="px-2">-</span>
-                        <h1 class="text-prussianblue-500 text-2xl"><?= $joke->title ?></h1></dt>
-                    <dd class="ml-4 flex items-start">
-                    </dd>
-                    <dd class="ml-4 flex items-start">
-                        <i class="hover:text-black fa-regular fa-face-smile-wink inline-block mr-2 text-sm"></i>
-                        <?= $joke_body ?>
-                    </dd>
-                </dl>
-            <?php else: ?>
-                <dl class="flex flex-col gap-2">
-                    <dt class="flex text-2xl font-semibold">No jokes in the system :/</dt>
-                    <dd class="ml-4 flex items-start">
-                    </dd>
-                </dl>
-            <?php endif; ?>
+                <article class="flex py-2 gap-2 flex-col">
+                    <section class=" grow flex flex-wrap gap-2 p-4 border border-gray-300 rounded-lg shadow-sm bg-sky-400 items-center justify-center">
+                        <h1 class="grow text-xl text-wrap text-white rounded-sm py-1 px-2">Jokes</h1>
+                        <h1 class="text-xl text-white border border-gray-300 rounded-sm py-1 px-2 text-center bg-sky-600"><?= $jokes_count ?></h1>
+                    </section>
 
-        </section>
-    </article>
+                    <section class="grow flex flex-wrap p-4 border border-gray-300 rounded-lg shadow-sm bg-red-400 items-center justify-center">
+                        <h1 class="grow text-xl text-wrap text-white rounded-sm py-1 px-2">Categories</h1>
+                        <h1 class="text-xl text-white border border-gray-300 rounded-sm py-1 px-2 text-center bg-red-600"><?= $jokes_count ?></h1>
+                    </section>
 
-    <article>
+                    <section class="grow flex flex-wrap p-4 border border-gray-300 rounded-lg shadow-sm bg-emerald-400 items-center justify-center">
+                        <h1 class="grow text-xl text-wrap text-white rounded-sm py-1 px-2">Users</h1>
+                        <h1 class="text-xl text-white border border-gray-300 rounded-sm py-1 px-2 text-center bg-emerald-600"><?= $jokes_count ?></h1>
+                    </section>
+                </article>
+            </article>
+        <?php endif; ?>
 
-<!--        <section class="m-4 bg-zinc-200 text-zinc-700 p-8 rounded-lg shadow-xl">-->
-<!--            <dl class="flex flex-col gap-2">-->
-<!---->
-<!--                <dt class="text-2xl font-semibold">Featured Joke</dt>-->
-<!--                <dd class="ml-4 flex items-start">-->
-<!--                    <i class="hover:text-black fa-regular fa-face-smile-wink inline-block mr-2 text-sm"></i>-->
-<!--                    <h1 class="hover:text-black">--><?php //= $joke->title ?><!--</h1>-->
-<!--                </dd>-->
-<!--                <dd class="ml-4 flex items-start">-->
-<!--                    <i class="hover:text-black fa-regular fa-face-smile-wink inline-block mr-2 text-sm"></i>-->
-<!--                    --><?php //= $joke_body ?>
-<!--                </dd>-->
-<!--            </dl>-->
-<!--        </section>-->
+        <article class="flex flex-col gap-2 flex-wrap col-span-3">
+            <section class="justify-start">
+                <form method="GET" action="/">
+                    <button type="submit" class="w-full p-2 btn-primary text-xl rounded-lg cursor-pointer">Click me to generate a random joke!</button>
+                </form>
+            </section>
 
+            <section class="bg-zinc-200 text-zinc-700 p-4 rounded-lg shadow-xl grow">
+
+                <?php if(isset($joke)): ?>
+                    <dl class="flex flex-col gap-2">
+                        <dt class="flex text-xl md:text-2xl font-semibold">Featured Joke
+                            <span class="px-2">-</span>
+                            <h1 class="text-prussianblue-500 text-xl tracking-wide md:text-2xl"><?= $joke->title ?></h1></dt>
+                        <dd class="ml-4 flex items-start">
+                            <i class="hover:text-black fa-regular fa-face-smile-wink inline-block mt-2 mr-2"></i>
+                            <p class="md:text-xl"><?= $joke_body ?></p>
+                        </dd>
+                    </dl>
+                <?php else: ?>
+                    <dl class="flex flex-col gap-2">
+                        <dt class="flex text-2xl font-semibold">No jokes in the system :/</dt>
+                    </dl>
+                <?php endif; ?>
+
+            </section>
+        </article>
     </article>
 </main>
 
