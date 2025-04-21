@@ -42,17 +42,6 @@ $authenticated = new Authorise();
                         <a class="underline underline-offset-2
                                   hover:text-black transition ease-in-out duration-500"
                            href="/"> Home</a>
-
-                        <?php
-                        if ($authenticated->isAuthenticated()) {
-                            ?>
-                            or your
-                            <a class="underline underline-offset-2
-                                  hover:text-black transition ease-in-out duration-500"
-                               href="/dashboard">Dashboard</a>
-                            <?php
-                        }
-                        ?>
                     </p>
                 </div>
             </div>
