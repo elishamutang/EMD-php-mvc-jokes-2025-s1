@@ -15,6 +15,7 @@
  */
 
 use Framework\Middleware\Authorise;
+use Framework\Session;
 
 $authenticated = new Authorise();
 ?>
@@ -43,14 +44,6 @@ $authenticated = new Authorise();
             <?php
             if ($authenticated->isAuthenticated()) {
                 ?>
-                <li>
-                    <a href="/dashboard"
-                       class="pb-2 px-1 text-gray-400 hover:text-gray-300
-                     border-0 border-b-2 hover:border-b-gray-500
-                     transition ease-in-out duration-500">
-                        Dashboard
-                    </a>
-                </li>
 
                 <li>
                     <a href="/jokes"
@@ -58,6 +51,15 @@ $authenticated = new Authorise();
                      border-0 border-b-2 hover:border-b-gray-500
                      transition ease-in-out duration-500">
                         Jokes
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/categories"
+                       class="pb-2 px-1 text-gray-400 hover:text-gray-300
+                     border-0 border-b-2 hover:border-b-gray-500
+                     transition ease-in-out duration-500">
+                        Categories
                     </a>
                 </li>
                 <?php
@@ -104,8 +106,8 @@ $authenticated = new Authorise();
                     <form method="GET" action="/edit" class="">
                         <button class="pb-2 px-1 text-sm text-gray-400 hover:text-gray-300
                      border-0 border-b-2 hover:border-b-gray-500
-                     transition ease-in-out duration-500">
-                            <i class="fa-solid fa-user-pen"></i> Edit Details
+                     transition ease-in-out duration-500 cursor-pointer">
+                            <i class="fa-solid fa-user-pen"></i> <?= Session::get('user')['nickname']; ?>
                         </button>
                     </form>
                 </li>
@@ -114,7 +116,7 @@ $authenticated = new Authorise();
                     <form method="POST" action="/auth/logout" class="">
                         <button class="pb-2 px-1 text-sm text-gray-400 hover:text-gray-300
                      border-0 border-b-2 hover:border-b-gray-500
-                     transition ease-in-out duration-500">
+                     transition ease-in-out duration-500 cursor-pointer">
                             <i class="fa fa-door-closed"></i> Logout
                         </button>
                     </form>
