@@ -252,7 +252,7 @@ class JokeController
     }
 
     /**
-     * Create new joke.
+     * Load page to add new joke.
      * @return void
      */
     public function create():void
@@ -265,6 +265,11 @@ class JokeController
         ]);
     }
 
+    /**
+     * Stores new joke in DB.
+     * @return void
+     * @throws \League\CommonMark\Exception\CommonMarkException
+     */
     public function store():void
     {
         // Get submitted values.
@@ -346,7 +351,7 @@ class JokeController
     }
 
     /**
-     * Deletes a joke.
+     * Deletes a joke from DB.
      * @return void
      */
     public function destroy(array $params):void
