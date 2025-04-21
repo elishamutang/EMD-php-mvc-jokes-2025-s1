@@ -49,17 +49,30 @@ class StaticPageController
      */
     public function index():void
     {
+        // Get random joke from DB.
         $simpleRandomSixQuery = 'SELECT * FROM jokes ORDER BY RAND() LIMIT 0,1';
-        $jokes_count = "SELECT COUNT(id) AS jokes_count FROM jokes";
-
         $jokes = $this->db->query($simpleRandomSixQuery)->fetchAll();
-        $jokes_count = $this->db->query($jokes_count)->fetchAll();
+
+        // Get count of jokes from jokes table in DB.
+        $jokes_count_query = "SELECT COUNT(id) AS jokes_count FROM jokes";
+        $jokes_count = $this->db->query($jokes_count_query)->fetchAll();
+
+        // Get count of registered users from users table in DB.
+        $users_count_query = "SELECT COUNT(id) AS user_count FROM users";
+        $users_count = $this->db->query($users_count_query)->fetchAll();
+
+        // Get count of catergories from categories table in DB.
+        $category_count_query = "SELECT COUNT(id) AS category_count FROM categories";
+        $category_count = $this->db->query($category_count_query)->fetchAll();
+
         $user = Session::get('user');
 
         loadView('home', [
             'joke' => $jokes ? $jokes[0] : null,
             'jokes_count' => $jokes_count[0]->jokes_count,
-            'user' => $user
+            'user' => $user,
+            'users_count' => $users_count[0]->user_count,
+            'category_count' => $category_count[0]->category_count
         ]);
     }
 

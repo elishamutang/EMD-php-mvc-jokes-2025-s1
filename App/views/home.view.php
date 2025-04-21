@@ -50,8 +50,8 @@ loadPartial('navigation');
         <?php if($authenticated->isAuthenticated()): ?>
 
             <article class="flex flex-col">
-                <section class="flex-wrap gap-2 border p-4 border-gray-400 bg-gray-300 rounded-lg shadow-sm">
-                    <h1 class="text-2xl text-wrap text-white rounded-sm py-1 px-2">Current Statistics!</h1>
+                <section class="flex-wrap gap-2 border p-4 border-gray-300 bg-gray-200 rounded-lg shadow-sm">
+                    <h1 class="text-xl md:text-2xl text-wrap text-gray-900 rounded-sm py-1 px-2">Current Statistics!</h1>
                 </section>
 
                 <article class="flex py-2 gap-2 flex-col">
@@ -62,12 +62,12 @@ loadPartial('navigation');
 
                     <section class="grow flex flex-wrap p-4 border border-gray-300 rounded-lg shadow-sm bg-red-400 items-center justify-center">
                         <h1 class="grow text-xl text-wrap text-white rounded-sm py-1 px-2">Categories</h1>
-                        <h1 class="text-xl text-white border border-gray-300 rounded-sm py-1 px-2 text-center bg-red-600"><?= $jokes_count ?></h1>
+                        <h1 class="text-xl text-white border border-gray-300 rounded-sm py-1 px-2 text-center bg-red-600"><?= $category_count ?></h1>
                     </section>
 
                     <section class="grow flex flex-wrap p-4 border border-gray-300 rounded-lg shadow-sm bg-emerald-400 items-center justify-center">
                         <h1 class="grow text-xl text-wrap text-white rounded-sm py-1 px-2">Users</h1>
-                        <h1 class="text-xl text-white border border-gray-300 rounded-sm py-1 px-2 text-center bg-emerald-600"><?= $jokes_count ?></h1>
+                        <h1 class="text-xl text-white border border-gray-300 rounded-sm py-1 px-2 text-center bg-emerald-600"><?= $users_count ?></h1>
                     </section>
                 </article>
             </article>
