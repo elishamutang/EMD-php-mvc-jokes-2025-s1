@@ -6,10 +6,10 @@
  *
  * Filename:        Database.php
  * Location:        /Framework/
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
+ * Project:         EMD-php-mvc-jokes-2025-s1
  * Date Created:    13/03/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 
