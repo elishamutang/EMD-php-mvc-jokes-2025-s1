@@ -21,7 +21,7 @@ loadPartial('navigation');
 
 ?>
 
-<main class="container md:max-w-3/4 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
+<main class="container md:max-w-5/6 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-b-lg flex flex-col flex-grow">
     <article>
         <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 p-8 mb-8 flex rounded-t-lg">
             <h1 class="grow text-3xl font-bold tracking-widest">JOKES</h1>
@@ -66,18 +66,18 @@ loadPartial('navigation');
                         </div>
                     </section>
 
-                    <footer class="-mx-2 bg-zinc-200 text-zinc-900 text-sm px-4 py-4 -mb-2 rounded-b flex justify-between flex-0">
-                        <div class="flex items-center gap-2">
+                    <footer class="-mx-2 bg-zinc-200 text-zinc-900 text-sm px-4 py-4 -mb-2 rounded-b flex flex-col md:flex-row justify-between">
+                        <div class="flex flex-wrap items-center gap-2">
                             Tags:
                             <?php
                             $tags = explode(',', $joke->tags);
                             foreach($tags as $tag) {
-                                echo "<div class='ml-2 my-1 rounded text-gray-700 bg-gray-300 px-2 py-1'>{$tag}</div>";
+                                echo "<div class='rounded text-gray-700 bg-gray-300 px-2 py-1'>{$tag}</div>";
                             };
                             ?>
                         </div>
                         <a href="/jokes/<?= $joke->id ?>"
-                           class="btn flex flex-wrap">
+                           class="btn flex flex-wrap mt-2">
                             More details...
                         </a>
                     </footer>
