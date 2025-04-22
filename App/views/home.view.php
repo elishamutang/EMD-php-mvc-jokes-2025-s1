@@ -32,7 +32,7 @@ loadPartial('navigation');
 
 <main class="container md:max-w-3/4 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
     <article  class="grid grid-cols-1">
-        <header class="bg-zinc-700 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-3xl font-bold rounded-t-lg">
+        <header class="bg-slate-900 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-3xl font-bold rounded-t-lg">
             <?php if (isset($user['nickname'])) : ?>
                 <h1 class="tracking-widest"><?= $user['nickname'] ?>'s JOKES DB</h1>
             <?php else : ?>
