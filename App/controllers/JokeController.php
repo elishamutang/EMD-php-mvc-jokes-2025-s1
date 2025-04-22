@@ -173,10 +173,10 @@ class JokeController
 
         // Get submitted form values.
         $updated_fields = [
-            'title' => $_POST['title'] ?? null,
-            'body' => $_POST['description'] ?? null,
+            'title' => sanitize($_POST['title']) ?? null,
+            'body' => sanitize($_POST['description']) ?? null,
             'category' => $_POST['category'] ?? null,
-            'tags' => $_POST['tags'] ?? null
+            'tags' => sanitize($_POST['tags']) ?? null
         ];
 
         // Get updated category id
@@ -273,11 +273,11 @@ class JokeController
     public function store():void
     {
         // Get submitted values.
-        $title = $_POST['title'] ?? null;
-        $author = $_POST['name'] ?? null;
-        $body = $_POST['description'] ?? null;
+        $title = sanitize($_POST['title']) ?? null;
+        $author = sanitize($_POST['name']) ?? null;
+        $body = sanitize($_POST['description']) ?? null;
         $category = $_POST['category'] ?? null;
-        $tags = $_POST['tags'] ?? null;
+        $tags = sanitize($_POST['tags']) ?? null;
 
         // Get all categories
         $categories = $this->db->query("SELECT * FROM categories")->fetchAll();
@@ -287,7 +287,7 @@ class JokeController
 
         // Convert joke description from HTML to markdown to get text only.
         $converter = new HtmlConverter();
-        $body = $converter-> convert($body);
+        $body = $converter->convert($body);
 
         /*
          * Validation
