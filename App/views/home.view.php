@@ -73,7 +73,12 @@ loadPartial('navigation');
             </article>
         <?php endif; ?>
 
-        <article class="flex flex-col gap-2 flex-wrap col-span-3">
+        <article
+                <?php if($authenticated->isAuthenticated()): ?>
+                    class="flex flex-col gap-2 flex-wrap col-span-3"
+                <?php else: ?>
+                    class="flex flex-col gap-2 flex-wrap col-span-4">
+                <?php endif; ?>
             <section class="justify-start">
                 <form method="GET" action="/">
                     <button type="submit" class="w-full p-2 btn-primary text-xl rounded-lg cursor-pointer">Click me to generate a random joke!</button>

@@ -355,6 +355,6 @@ class UserController
             'country' => $user->country
         ]);
 
-        redirect('/dashboard');
+        redirect('/');
     }
 }
