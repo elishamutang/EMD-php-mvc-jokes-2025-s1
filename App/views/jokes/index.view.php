@@ -33,7 +33,7 @@ loadPartial('navigation');
         <section class="text-xl text-zinc-500 my-8">
             <?php if (isset($keywords)) : ?>
                 <p>Search Results for: <?= htmlspecialchars($keywords) ?></p>
-                <p><?= count($jokes ?? []) ?> product(s) found</p>
+                <p><?= count($jokes ?? []) ?> joke(s) found</p>
             <?php else : ?>
                 <p class="text-2xl">All Jokes</p>
             <?php endif; ?>
