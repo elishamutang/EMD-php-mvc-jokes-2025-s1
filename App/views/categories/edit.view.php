@@ -29,7 +29,6 @@ loadPartial('navigation');
             </header>
 
             <section>
-                <?= var_dump($category); ?>
 
                 <?= loadPartial('message') ?>
 
