@@ -344,7 +344,7 @@ class JokeController
 
         $query = "INSERT INTO jokes (title, body, category_id, tags, author_id) VALUES (:title, :body, :category_id, :tags, :author)";
 
-        Session::setFlashMessage('success_message', 'Joke added successfully!');
+        Session::setFlashMessage('success_message', 'Joke successfully added!');
 
         $this->db->query($query, $params);
 
