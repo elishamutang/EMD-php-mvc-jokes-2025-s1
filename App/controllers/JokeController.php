@@ -174,7 +174,7 @@ class JokeController
         // Get submitted form values.
         $updated_fields = [
             'title' => sanitize($_POST['title']) ?? null,
-            'body' => sanitize($_POST['description']) ?? null,
+            'body' => $_POST['description'] ?? null,
             'category' => $_POST['category'] ?? null,
             'tags' => sanitize($_POST['tags']) ?? null
         ];
@@ -208,10 +208,6 @@ class JokeController
             $errors['tags'] = 'Tags must contain at least 1 tag.';
         }
 
-        // Convert joke description from markdown to HTML entities to store in DB.
-        $markdown_converter = new CommonMarkConverter();
-        $updated_fields['body'] = htmlentities($markdown_converter->convert($updated_fields['body'])->getContent(), ENT_COMPAT);
-
         // Re-load edit page with joke details and error message if title or description is blank.
         if(!empty($errors)) {
             loadView('/jokes/edit', [
@@ -221,6 +217,11 @@ class JokeController
             ]);
             exit;
         }
+
+        // Convert joke description from markdown to HTML entities to store in DB. Joke description is already
+        // sanitized hence no need to run sanitize() here.
+        $markdown_converter = new CommonMarkConverter();
+        $updated_fields['body'] = htmlentities($markdown_converter->convert($updated_fields['body']), ENT_COMPAT);
 
         // Prepare to update tags.
         $input_tags = str_replace(' ', '', trim($updated_fields['tags']));
