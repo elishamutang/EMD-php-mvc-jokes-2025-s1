@@ -1,17 +1,16 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Router Class
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Provides routing to different routes of the website, according to the
+ * specified method (GET, POST, PUT, DELETE), controller, and middleware.
  *
  * Filename:        Router.php
- * Location:        /Framework
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    13/03/2025
+ * Location:        Framework/
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    03/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 

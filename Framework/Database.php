@@ -2,10 +2,10 @@
 /**
  * Database Access Class
  *
- * Provides the database access tools used by our micro-framework
+ * Provides the database access tools used by the micro-framework.
  *
  * Filename:        Database.php
- * Location:        /Framework/
+ * Location:        Framework/
  * Project:         EMD-php-mvc-jokes-2025-s1
  * Date Created:    13/03/2025
  *

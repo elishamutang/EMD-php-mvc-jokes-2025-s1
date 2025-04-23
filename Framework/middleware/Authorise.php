@@ -1,17 +1,15 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Authorise User Class.
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Handles user requests to access specific routes of the web application.
  *
  * Filename:        Authorise.php
- * Location:
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    20/08/2024
+ * Location:        Framework/middleware/
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    03/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 
