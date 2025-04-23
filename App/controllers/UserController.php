@@ -73,11 +73,11 @@ class UserController
     {
         $given_name = $_POST['given_name'] ?? null;
         $family_name = $_POST['family_name'] ?? null;
-        $nickname = $_POST['nickname'] ?? null;
+        $nickname = empty($_POST['nickname']) ? $given_name : $_POST['nickname'];
         $email = $_POST['email'] ?? null;
-        $city = $_POST['city'] ?? null;
-        $state = $_POST['state'] ?? null;
-        $country = $_POST['country'] ?? null;
+        $city = empty($_POST['city']) ? 'Unknown' : $_POST['city'];
+        $state = empty($_POST['state']) ? 'Unknown' : $_POST['state'];
+        $country = empty($_POST['country']) ? 'Unknown' : $_POST['country'];
         $password = $_POST['password'] ?? null;
         $passwordConfirmation = $_POST['password_confirmation'] ?? null;
 
@@ -124,7 +124,7 @@ class UserController
         $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
 
         if ($user) {
-            $errors['email'] = 'That email already exists';
+            $errors['email'] = 'That email already exists, please log in.';
             loadView('users/create', [
                 'errors' => $errors
             ]);
@@ -135,15 +135,16 @@ class UserController
         $params = [
             'given_name' => $given_name,
             'family_name' => $family_name,
-            'nickname' => empty($nickname) ? $given_name : $nickname,
+            'nickname' => $nickname,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
-            'city' => empty($city) ? 'Unknown' : $city,
-            'state' => empty($state) ? 'Unknown' : $state,
-            'country' => empty($country) ? 'Unknown' : $country,
+            'city' => $city,
+            'state' => $state,
+            'country' => $country,
         ];
 
-        $this->db->query('INSERT INTO users (given_name, family_name, nickname, email, password, city, state, country) VALUES (:given_name, :family_name, :nickname, :email, :password, :city, :state, :country)', $params);
+        $this->db->query('INSERT INTO users (given_name, family_name, nickname, email, password, city, state, country, created_at) 
+                                VALUES (:given_name, :family_name, :nickname, :email, :password, :city, :state, :country, CURRENT_TIMESTAMP)', $params);
 
         // Get new user ID
         $userId = $this->db->conn->lastInsertId();
@@ -164,6 +165,20 @@ class UserController
     }
 
     /**
+     * Allow user to edit their personal details.
+     *
+     * @return void
+     */
+    public function edit():void
+    {
+        $user = Session::get('user');
+
+        loadView('/users/edit', [
+            'user' => $user
+        ]);
+    }
+
+    /**
      * Update user details.
      *
      * @return void
@@ -175,11 +190,11 @@ class UserController
 
         $given_name = $_POST['given_name'] ?? null;
         $family_name = $_POST['family_name'] ?? null;
-        $nickname = $_POST['nickname'] ?? null;
+        $nickname = empty($_POST['nickname']) ? $given_name : $_POST['nickname'];
         $email = $_POST['email'] ?? null;
-        $city = $_POST['city'] ?? null;
-        $state = $_POST['state'] ?? null;
-        $country = $_POST['country'] ?? null;
+        $city = empty($_POST['city']) ? 'Unknown' : $_POST['city'];
+        $state = empty($_POST['state']) ? 'Unknown' : $_POST['state'];
+        $country = empty($_POST['country']) ? 'Unknown' : $_POST['country'];
         $password = $_POST['password'] ?? null;
         $passwordConfirmation = $_POST['password_confirmation'] ?? null;
 
@@ -246,15 +261,16 @@ class UserController
             'id' => $user['id'],
             'given_name' => $given_name,
             'family_name' => $family_name,
-            'nickname' => empty($nickname) ? $given_name : $nickname,
+            'nickname' => $nickname,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
-            'city' => empty($city) ? 'Unknown' : $city,
-            'state' => empty($state) ? 'Unknown' : $state,
-            'country' => empty($country) ? 'Unknown' : $country,
+            'city' => $city,
+            'state' => $state,
+            'country' => $country,
         ];
 
-        $this->db->query('UPDATE users SET given_name = :given_name, family_name = :family_name, nickname = :nickname, email = :email, password = :password, city = :city, state = :state, country = :country, updated_at = CURRENT_TIMESTAMP WHERE id = :id', $params);
+        $this->db->query('UPDATE users SET given_name = :given_name, family_name = :family_name, nickname = :nickname, email = :email, 
+                                password = :password, city = :city, state = :state, country = :country, updated_at = CURRENT_TIMESTAMP WHERE id = :id', $params);
 
         Session::set('user', [
             'id' => $user['id'],
@@ -297,8 +313,8 @@ class UserController
      */
     public function authenticate()
     {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = $_POST['email'] ?? null;
+        $password = $_POST['password'] ?? null;
 
         $errors = [];
 
@@ -314,29 +330,34 @@ class UserController
         // Check for errors
         if (!empty($errors)) {
             loadView('users/login', [
-                'errors' => $errors
+                'errors' => $errors,
+                'email' => $email
             ]);
             exit;
         }
 
-        // Check for email
         $params = [
             'email' => $email
         ];
 
         $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
 
-        if (!$user) {
-            $errors['email'] = 'Incorrect credentials';
-            loadView('users/login', [
-                'errors' => $errors
-            ]);
-            exit;
+        // Check if user exists
+        if(!$user) {
+            $errors['email'] = 'Email is not registered.';
+        } else {
+            // Incorrect email.
+            if(!Validation::match($user->email, $email)) {
+                $errors['email'] = 'Incorrect credentials';
+            }
+
+            // Check if password is correct
+            if (!password_verify($password, $user->password)) {
+                $errors['email'] = 'Incorrect credentials';
+            }
         }
 
-        // Check if password is correct
-        if (!password_verify($password, $user->password)) {
-            $errors['email'] = 'Incorrect credentials';
+        if(!empty($errors)) {
             loadView('users/login', [
                 'errors' => $errors
             ]);
