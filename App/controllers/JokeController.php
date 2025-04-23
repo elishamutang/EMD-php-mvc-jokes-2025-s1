@@ -169,6 +169,7 @@ class JokeController
                       JOIN categories ON jokes.category_id = categories.id)
                       JOIN users ON jokes.author_id = users.id)
                   WHERE jokes.id = :id";
+
         $joke = $this->db->query($joke_query, $params)->fetch();
 
         // Get submitted form values.
@@ -195,6 +196,7 @@ class JokeController
         /*
          * Validation
          * Joke title, body, and tags cannot be left empty.
+         * Prevent duplicates for joke title.
          */
         if(!Validation::string($updated_fields['title'])) {
             $errors['title'] = 'Title cannot be blank!';
@@ -208,7 +210,18 @@ class JokeController
             $errors['tags'] = 'Tags must contain at least 1 tag.';
         }
 
-        // Re-load edit page with joke details and error message if title or description is blank.
+        $params = [
+            'title' => $updated_fields['title']
+        ];
+
+        // Check if user input title already exists in DB.
+        $contains_title = $this->db->query("SELECT title FROM jokes WHERE title = :title", $params)->fetch();
+
+        if($contains_title && !Validation::match($joke->title, $updated_fields['title'])) {
+            $errors['title'] = "<strong>{$updated_fields['title']}</strong> already exists in the system.";
+        }
+
+        // Re-load edit page with joke details and error message(s) if any.
         if(!empty($errors)) {
             loadView('/jokes/edit', [
                 'joke' => $joke,
@@ -308,6 +321,17 @@ class JokeController
 
         if(!Validation::string($tags)) {
             $errors['tags'] = 'Tags must contain at least 1 tag.';
+        }
+
+        $params = [
+            'title' => $title
+        ];
+
+        // Check if user input title already exists in DB.
+        $contains_title = $this->db->query("SELECT title FROM jokes WHERE title = :title", $params)->fetch();
+
+        if($contains_title) {
+            $errors['title'] = "<strong>{$title}</strong> already exists in the system.";
         }
 
         // Re-load create form if $errors array is not empty.
