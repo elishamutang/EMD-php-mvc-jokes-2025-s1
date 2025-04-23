@@ -289,7 +289,7 @@ class JokeController
         // Get submitted values.
         $title = sanitize($_POST['title']) ?? null;
         $author = sanitize($_POST['name']) ?? null;
-        $body = sanitize($_POST['description']) ?? null;
+        $body = $_POST['description'] ?? null;
         $category = $_POST['category'] ?? null;
         $tags = sanitize($_POST['tags']) ?? null;
 
