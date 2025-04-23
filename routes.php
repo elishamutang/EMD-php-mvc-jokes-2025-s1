@@ -37,6 +37,16 @@ $router->post('/jokes', 'JokeController@store', ['auth']);
 $router->put('/jokes/{id}', 'JokeController@update', ['auth']);
 $router->delete('/jokes/{id}', 'JokeController@destroy', ['auth']);
 
+$router->get('/categories', 'CategoryController@index', ['auth']);
+$router->get('/categories/search', 'CategoryController@search', ['auth']);
+$router->get('categories/create', 'CategoryController@create', ['auth']);
+$router->get('/categories/edit/{id}', 'CategoryController@edit', ['auth']);
+$router->get('/categories/{id}', 'CategoryController@show', ['auth']);
+
+$router->post('/categories', 'CategoryController@store', ['auth']);
+$router->put('/categories/{id}', 'CategoryController@update', ['auth']);
+$router->delete('/categories/{id}', 'CategoryController@destroy', ['auth']);
+
 /**
  * Example Routes for a feature (Feature)
  *
