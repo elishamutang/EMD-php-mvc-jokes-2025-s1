@@ -30,7 +30,7 @@ loadPartial('navigation');
 
 ?>
 
-<main class="container md:max-w-3/4 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
+<main class="container md:max-w-3/5 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
     <article  class="grid grid-cols-1">
         <header class="bg-slate-900 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-3xl font-bold rounded-t-lg">
             <?php if (isset($user['nickname'])) : ?>
@@ -73,15 +73,10 @@ loadPartial('navigation');
             </article>
         <?php endif; ?>
 
-        <article
-                <?php if($authenticated->isAuthenticated()): ?>
-                    class="flex flex-col gap-2 flex-wrap col-span-3"
-                <?php else: ?>
-                    class="flex flex-col gap-2 flex-wrap col-span-4">
-                <?php endif; ?>
-            <section class="justify-start">
+        <article class="flex flex-col gap-2 flex-wrap <?= $authenticated->isAuthenticated() ? 'col-span-3' : 'col-span-4' ?>">
+            <section class="<?= $authenticated->isAuthenticated() ? 'justify-start' : 'self-center'?>">
                 <form method="GET" action="/">
-                    <button type="submit" class="w-full p-2 btn-primary text-xl rounded-lg cursor-pointer">Click me to generate a random joke!</button>
+                    <button type="submit" class="<?= $authenticated->isAuthenticated() ? 'w-full' : '' ?> p-2 btn-primary text-xl rounded-lg cursor-pointer">Click me to generate a random joke!</button>
                 </form>
             </section>
 
@@ -105,6 +100,7 @@ loadPartial('navigation');
 
             </section>
         </article>
+
     </article>
 </main>
 
