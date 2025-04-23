@@ -3,7 +3,7 @@
  * Home Page View
  *
  * Allows a visitor and a registered user to see a random joke displayed in the middle of the page.
- * If no jokes are present in the database, an appropriate message is showed.
+ * If no jokes are present in the database, an appropriate message is shown.
  *
  * Filename:        home.view.php
  * Location:        /App/views
@@ -14,6 +14,8 @@
  *
  */
 
+use Framework\Middleware\Authorise;
+
 /*
  * Decode joke body stored in database and format it to have a <br> tag if there is more than 1 sentence.
  */
@@ -22,7 +24,6 @@ if(isset($joke)) {
     $joke_body = str_replace(['<p>', '</p>'], ['', '<br>'], $joke_body);
 }
 
-use Framework\Middleware\Authorise;
 $authenticated = new Authorise();
 
 loadPartial('header');
@@ -33,7 +34,7 @@ loadPartial('navigation');
 <main class="container md:max-w-3/5 max-w-9/10 mx-auto bg-zinc-50 py-8 px-4 shadow shadow-black/25 rounded-lg">
     <article  class="grid grid-cols-1">
         <header class="bg-slate-900 text-zinc-200 -mx-4 -mt-8 mb-4 p-8 text-3xl font-bold rounded-t-lg">
-            <?php if (isset($user['nickname'])) : ?>
+            <?php if (isset($user)) : ?>
                 <h1 class="tracking-widest"><?= $user['nickname'] ?>'s JOKES DB</h1>
             <?php else : ?>
                 <h1 class="tracking-widest">JOKES DB</h1>

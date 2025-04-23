@@ -2,12 +2,14 @@
 /**
  * Error Message View
  *
+ * Provides a custom error page for handling errors when accessing specific routes.
+ *
  * Filename:        error.view.php
  * Location:        /App/views
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    23/08/2024
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    13/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 

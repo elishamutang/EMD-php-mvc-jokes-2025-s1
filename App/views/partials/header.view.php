@@ -1,13 +1,13 @@
 <?php
 /**
- * HTML Template using TailwindCSS
+ * Head section of HTML.
  *
- * Filename:        template.php
- * Location:        public
- * Project:         XXX-SaaS-Vanilla-MVC-SN
- * Date Created:    2025-03-13
+ * Filename:        header.view.php
+ * Location:        App/views/partials
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    13/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 ?>
