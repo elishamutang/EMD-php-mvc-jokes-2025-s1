@@ -2,12 +2,14 @@
 /**
  * Register User View
  *
+ * Presents a page to the user to register their details.
+ *
  * Filename:        create.view.php
  * Location:        App/views/users
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    23/08/2024
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    13/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 
@@ -30,7 +32,11 @@ loadPartial('navigation'); ?>
             <form method="POST" action="/auth/register">
 
                 <section class="mb-4">
-                    <label for="given_name" class="mt-4 pb-1">Given Name:</label>
+                    <p class="text-gray-500 italic">Fields indicated with <span class="text-red-600 font-bold">*</span> are required.</p>
+                </section>
+
+                <section class="mb-4">
+                    <label for="given_name" class="mt-4 pb-1">Given Name<span class="text-red-600 font-bold">*</span></label>
                     <input type="text" id="given_name"
                            name="given_name" placeholder="Jack"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
@@ -38,7 +44,7 @@ loadPartial('navigation'); ?>
                 </section>
 
                 <section class="mb-4">
-                    <label for="family_name" class="mt-4 pb-1">Family Name:</label>
+                    <label for="family_name" class="mt-4 pb-1">Family Name</label>
                     <input type="text" id="family_name"
                            name="family_name" placeholder="Smith"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
@@ -46,7 +52,7 @@ loadPartial('navigation'); ?>
                 </section>
 
                 <section class="mb-4">
-                    <label for="nickname" class="mt-4 pb-1">Nickname (preferred name):</label>
+                    <label for="nickname" class="mt-4 pb-1">Nickname (preferred name)</label>
                     <input type="text" id="nickname"
                            name="nickname" placeholder="Jack Smith"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
@@ -54,7 +60,7 @@ loadPartial('navigation'); ?>
                 </section>
 
                 <section class="mb-4">
-                    <label for="Email" class="mt-4 pb-1">Email:</label>
+                    <label for="Email" class="mt-4 pb-1">Email<span class="text-red-600 font-bold">*</span></label>
                     <input type="email" id="Email"
                            name="email" placeholder="jacksmith@example.com"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
@@ -86,14 +92,14 @@ loadPartial('navigation'); ?>
                 </section>
 
                 <section class="mb-4">
-                    <label for="Password" class="mt-4 pb-1">Password:</label>
+                    <label for="Password" class="mt-4 pb-1">Password<span class="text-red-600 font-bold">*</span></label>
                     <input type="password" id="Password"
                            name="password" placeholder="Password"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"/>
                 </section>
 
                 <section class="mb-4">
-                    <label for="PasswordConfirmation" class="mt-4 pb-1">Confirm password:</label>
+                    <label for="PasswordConfirmation" class="mt-4 pb-1">Confirm password<span class="text-red-600 font-bold">*</span></label>
                     <input type="password" id="PasswordConfirmation"
                            name="password_confirmation" placeholder="Confirm Password"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"/>
@@ -110,7 +116,7 @@ loadPartial('navigation'); ?>
                 <section class="mb-4">
                     <p class="mt-8 text-zinc-700">
                         Already have an account?
-                        <a class="bg-prussianblue-900 hover:bg-prussianblue-600 text-white px-1 pb-1 rounded
+                        <a class="bg-prussianblue-900 hover:bg-prussianblue-600 text-white px-1 py-1 rounded
                               transition ease-in-out duration-500" href="/auth/login">Login</a>
                     </p>
                 </section>

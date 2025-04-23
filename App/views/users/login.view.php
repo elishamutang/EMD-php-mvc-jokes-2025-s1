@@ -1,17 +1,15 @@
 <?php
 /**
- * FILE TITLE GOES HERE
+ * Login page.
  *
- * DESCRIPTION OF THE PURPOSE AND USE OF THE CODE
- * MAY BE MORE THAN ONE LINE LONG
- * KEEP LINE LENGTH TO NO MORE THAN 96 CHARACTERS
+ * Presents a login page to a registered user.
  *
  * Filename:        login.view.php
- * Location:        ${FILE_LOCATION}
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    23/08/2024
+ * Location:        App/views/users
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    13/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 
@@ -38,7 +36,7 @@ loadPartial('navigation'); ?>
                     <input type="email" id="Email"
                            name="email" placeholder="Email Address"
                            class="w-full px-4 py-2 border border-b-zinc-300 rounded focus:outline-none"
-                           value="<?= $user['email'] ?? '' ?>"/>
+                           value="<?= $email ?? '' ?>"/>
                 </section>
 
                 <section class="mb-4">
@@ -52,7 +50,7 @@ loadPartial('navigation'); ?>
 
                     <button type="submit"
                             class="w-full bg-prussianblue-500 hover:bg-prussianblue-600 text-white px-4 py-2 rounded
-                                   focus:outline-none transition ease-in-out duration-500">
+                                   focus:outline-none transition ease-in-out duration-500 cursor-pointer">
                         Login
                     </button>
                 </section>
@@ -60,7 +58,7 @@ loadPartial('navigation'); ?>
                 <section class="mb-4">
                     <p class="mt-8 text-zinc-700">
                         So you are not a member...
-                        <a class="bg-prussianblue-900 hover:bg-prussianblue-600 text-white px-1 pb-1 rounded
+                        <a class="bg-prussianblue-900 hover:bg-prussianblue-600 text-white px-1 py-1 rounded
                               transition ease-in-out duration-500"
                            href="/auth/register">Register</a> now!
                     </p>
