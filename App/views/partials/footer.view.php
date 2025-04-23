@@ -4,10 +4,10 @@
  *
  * Filename:        footer.view.php
  * Location:        App/views/partials
- * Project:         XXX-SaaS-Vanilla-MVC-YYYY-SN
- * Date Created:    20/08/2024
+ * Project:         EMD-php-mvc-jokes-2025-s1
+ * Date Created:    03/04/2025
  *
- * Author:          Adrian Gould <Adrian.Gould@nmtafe.wa.edu.au>
+ * Author:          Elisha Mutang Daneil <20145565@tafe.wa.edu.au>
  *
  */
 ?>
@@ -19,11 +19,11 @@
     <section class="max-w-screen-xl mx-auto px-4 sm:px-6
          text-gray-400 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-between">
         <nav class="py-2">
-            <h5 class="font-display text-left font-medium tracking-widest text-gray-500 uppercase title-font>
+            <h5 class="font-display text-left font-medium tracking-widest text-gray-500 uppercase title-font">
                 About
             </h5>
             <a class="my-1 block" href="/#">
-                Company 
+                Company
                 <span class="text-prussianblue-600 text-xs p-1"></span>
             </a>
             <a class="my-1 block" href="/#">
