@@ -23,24 +23,26 @@ Used by students at North Metropolitan TAFE for learning and assessment purposes
 
 ## Definitions
 
-| Term                | Definition                                                                                                  |
-|---------------------|-------------------------------------------------------------------------------------------------------------|
-| BREAD               | Database operations to Browse, Read, Edit, Add and Delete data                                              |
-| CRUD                | More commonly used term over BREAD. Create (Add), Retrieve (Browse/Read), Update (Edit) and Delete (Delete) |
-| Relational Database | ...                                                                                                         |
-| One to One          | ...                                                                                                         |
-| One to Many         | ...                                                                                                         |
-| Many to Many        | ...                                                                                                         |
-| Polymorphism        | ...                                                                                                         |
-| MVC                 | ...                                                                                                         |
-| ...                 | ...                                                                                                         |
+| Term                | Definition                                                                                                                                                             |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| BREAD               | Database operations to Browse, Read, Edit, Add and Delete data                                                                                                         |
+| CRUD                | More commonly used term over BREAD. Create (Add), Retrieve (Browse/Read), Update (Edit) and Delete (Delete)                                                            |
+| Relational Database | A database structured to recognize relations between stored items of information.                                                                                      |
+| One to One          | A one to one relationship is a relationship where a record in one table is associated with exactly one record in another table.                                        |
+| One to Many         | A one to many relationship refer to relations where one record on one side of the relation can be connected to zero or more records on the other side.                 |
+| Many to Many        | A many to many relationship describes a link between two entities where each instance in one entity can be related to multiple instances in the other, and vice versa. |
+| Polymorphism        | Polymorphism describes the concept that you can access objects of different types through the same interface.                                                          |
+| MVC                 | A common software architectural pattern that is used to implement user interfaces, data, and controlling logic.                                                        | |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Description
 
-This small demonstration application was developed to assist in the
-learning the process of developing a micro-framework.
+Jokeify is a simple jokes system built using HTML, TailwindCSS, PHP, and SQL / MariaDB. The web application
+followed the Model-View-Controller Framework to allow for a more organised, scalable, and maintainable application.
+
+Features of the application include user authentication and BREAD (browse, read, edit, add, delete) operations for 
+to manage jokes and categories.
 
 This code is based on the [Workopia Project](https://github.com/bradtraversy/workopia-php)
 Micro-MVC Framework from the [PHP From Scratch course](https://www.traversymedia.com/php-from-scratch),
@@ -76,34 +78,22 @@ TO DO: Add extra, or update the contents as needed, then remove this line.
 `Source/Repos` in your account's
 > root folder (eg. `/c/Users/YourName/Source/Repos`).
 
-> **Project Naming Requirements**
->
-> Replace
-> - `XXX` with YOUR INITIALS,
-> - `YYYY` with the current year and
-> - `SN` with the current semester.
->
-> For example: ajg-saas-vanilla-mvc-2025-s1
-
-Clone the repository 
-[xxx-saas-vanilla-mvc-yyyy-sn](https://github.com/AdyGCode/xxx-saas-vanilla-mvc-yyyy-sn) 
-using the following commands.
-
+### Change directory and clone repo.
 ```shell
 cd $HOME/Source/Repos
-git clone https://github.com/AdyGCode/xxx-saas-vanilla-mvc-yyyy-sn
+git clone https://github.com/elishamutang/EMD-php-mvc-jokes-2025-s1
 ```
 
-Change into the folder and run the `composer` and `npm` installers:
+### Change into the folder and run the `composer` and `npm` installers:
 
 ```shell
-cd xxx-saas-vanilla-mvc-yyyy-sn-YYYY-sN
+cd EMD-php-mvc-jokes-2025-s1
 composer install
 composer update
 npm install
 ```
 
-If required, you may need to install CK Editor, Commonmark and HTML-to-Markdown using:
+### Install CK Editor, Commonmark and HTML-to-Markdown using:
 
 ```shell
 composer require ckeditor/ckeditor league/html-to-markdown league/commonmark
@@ -119,20 +109,12 @@ Create the Database, Database user password, plus tables and seed data for your 
 Using PhpMyAdmin or a similar GUI based MySQL/RDBMS administration interface, execute the
 provided SQL files for your DBMS.
 
-#### PostgreSQL
-
-TODO: Instructions for PostgreSQL are to be completed.
-
 #### Links to SQL Scripts
 
 | DBMS       | User & DB Script                                      |
 |------------|-------------------------------------------------------|
 | MariaDB    | [database-mariadb.sql](./config/database-mariadb.sql) |
 | MariaDB    | [database-mysql.sql](./config/database-mysql.sql)     |
-| PostgreSQL | [TODO: Not available](#)                              |
-
-
-TODO: More details on use for use in developing basic application using this code.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -163,7 +145,10 @@ TODO: More details on use for use in developing basic application using this cod
 
 ## Features
 
-> Features may be added in the future
+- User authentication, login, and logout.
+- Jokes and category management using BREAD (Browse, Read, Edit, Add, Delete) operations.
+- Registered and authenticated users may add, edit and delete jokes and categories they have created.
+- Registered and authenticated users may edit their own user data only.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
