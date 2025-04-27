@@ -60,11 +60,10 @@ TO DO: Add extra, or update the contents as needed, then remove this line.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [Licence](#licence)
-- [Badges](#badges)
 - [Features](#features)
 - [Tests](#tests)
 - [Contact](#contact)
+- [Licence](#licence)
 
 ## Installation
 
@@ -102,28 +101,153 @@ npm install @ckeditor/ckeditor5-build-classic
 
 ### Create RDBMS User & Database
 
-Create the Database, Database user password, plus tables and seed data for your chosen RDBMS.
+Create the Database, Database user password, plus tables and seed data using MariaDB.
 
 #### MariaDB and MySQL
 
 Using PhpMyAdmin or a similar GUI based MySQL/RDBMS administration interface, execute the
-provided SQL files for your DBMS.
+provided SQL file for MariaDB.
 
-#### Links to SQL Scripts
+#### Links to SQL Script
 
 | DBMS       | User & DB Script                                      |
 |------------|-------------------------------------------------------|
 | MariaDB    | [database-mariadb.sql](./config/database-mariadb.sql) |
-| MariaDB    | [database-mysql.sql](./config/database-mysql.sql)     |
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
 
-> TODO: Add details of how to use this demonstration application.
+### General Homepage
+When first visiting the website, users are greeted with the below homepage which shows a random joke. From here on, they will need to login or register
+to see all the jokes and categories.
 
-![Home Screen](src/images/home-screen.png)
+![General-homepage.png](src/images/General-homepage.png)
+
+### General About Page
+This page provides the user with an overview of the website, the creator of the website, and the associated technologies / tools that were used to build the website.
+
+![General-about-page.png](src/images/General-about-page.png)
+
+### User Login Page
+If the user is already registered, they will have to login to access all the jokes and categories, including managing their own created jokes / categories.
+
+![Login-page.png](src/images/Login-page.png)
+
+### User Registration Page
+If the user is not registered, they will need to register their details using the registration form below.
+
+![Register-page.png](src/images/Register-page.png)
+
+### Authenticated Homepage
+After being authenticated, the user is greeted with the following homepage. The homepage shows the statistics for the total number of
+Jokes, Categories, and Users in the system. 
+
+In addition, a random joke generator is presented where the user may generate a random joke
+by clicking the button.
+
+![Authenticated-homepage.png](src/images/Authenticated-homepage.png)
+
+### Edit User Details
+Users will be able to edit their details such as Given Name, Family Name, Nickname, Email, City, State, Country, and Password.
+
+![Edit-user-details-page.png](src/images/Edit-user-details-page.png)
+
+### Jokes Page
+The Jokes page shows all the jokes in the system. At this page, each joke shows the following information:
+
+- Title
+- Author
+- Category
+- Tags
+
+In addition, the user will be able to add a new joke while staying on the jokes page.
+
+![Jokes-page.png](src/images/Jokes-page.png)
+
+### Add New Joke
+If the user wants to add a new joke, they must click the "Add Joke" button from the previous page. The user will be presented with the following form.
+
+![Add-joke-page.png](src/images/Add-joke-page.png)
+
+### Read Joke
+By clicking the "More Details" button on each joke from the Jokes page, the user will be presented with more information regarding
+the joke such as:
+
+- Author Full Name
+- Description / Body of joke
+- Category
+- Tags
+
+![Read-joke.png](src/images/Read-joke.png)
+
+
+### Read Own Joke
+If a user is reading their own joke, they will have access to either Edit or Delete the joke.
+
+![Owned-joke-view.png](src/images/Owned-joke-view.png)
+
+### Edit Joke
+If the user wants to edit their own joke, they will be able to do so and is presented with the following page as an example.
+
+![Edit-joke-page.png](src/images/Edit-joke-page.png)
+
+### Delete Joke
+If the user wants to delete their own joke, they will be presented with a confirmation pop-up to confirm the deletion of their joke from the system.
+
+![Delete-feature.png](src/images/Delete-feature.png)
+
+### Search Joke
+The user will be able to search for jokes using the Search Bar at the top right of the "header" / navigation bar. Below is an example of
+the possible results from what was searched using the search bar.
+
+![Search-joke-feature.png](src/images/Search-joke-feature.png)
+
+### Categories Page
+Below is the Categories page that shows all the categories associated with the jokes in the system. Users will be able to browse and read
+the categories from this page. Users may manage the categories they created (identified by You tag) or add new ones.
+
+![Categories-page.png](src/images/Categories-page.png)
+
+### Read Category
+Users may access additional information regarding a category by clicking the "More Details" button from the previous page (Categories page).
+The following information is presented:
+
+- Title
+- Author Name
+- Creation date
+- Last updated date
+- Jokes belonging to the category
+
+Users can click on the related jokes which will direct them to that specific joke. In addition, users may add new categories by clicking on the "Add Category" button.
+
+![Read-category.png](src/images/Read-category.png)
+
+### Add Category
+Users will be directed to a page where they can create their own categories.
+
+![Add-category-page.png](src/images/Add-category-page.png)
+
+### Read Own Category
+Users may Edit or Delete their own categories.
+
+![Owned-category-page.png](src/images/Owned-category-page.png)
+
+### Edit Category
+Users may edit their own categories by changing the title of the category to something else.
+
+![Edit-category-page.png](src/images/Edit-category-page.png)
+
+### Delete Category
+Users will be presented with a confirmation pop-up to confirm their deletion of the category from the system.
+
+![Delete-category.png](src/images/Delete-category.png)
+
+### Search Category
+Users will be able to search for a specific category using the Category Search bar.
+
+![Search-category-feature.png](src/images/Search-category-feature.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -131,14 +255,14 @@ provided SQL files for your DBMS.
 ## Credits
  
 - Font Awesome. (n.d.). Fontawesome.com. https://fontawesome.com
-- PHP: Hypertext Preprocessor. (n.d.). Www.php.net. https://php.net
+- PHP: Hypertext Preprocessor. (n.d.). www.php.net. https://php.net
 - TailwindCSS. (2023). Tailwind CSS - Rapidly build modern websites
   without ever leaving your HTML. Tailwindcss.com. https://tailwindcss.com/
 - JetBrains (2019). PhpStorm. [online] JetBrains. Available
   at: https://www.jetbrains.com/phpstorm/.
-- erusev/parsedown: Better Markdown Parser in PHP. (2019, December 30). 
-  GitHub. https://github.com/erusev/parsedown
-- ...
+- html-to-markdown: Convert HTML to Markdown with PHP. (n.d.). 
+  GitHub. https://github.com/thephpleague/html-to-markdown
+- CommonMark: A strongly defined, highly compatible specification of Markdown. (2004). https://commonmark.org/
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -154,7 +278,40 @@ provided SQL files for your DBMS.
 
 ## Tests
 
-> Tests to be developed
+| Feature    | Sub-Feature     | Test Data                                                                                                                                                                                  | Expected Result                                                                                                                                                                                                                                                                                | Actual Result                | Notes |
+|------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|-------|
+| Users      | Login           | email: user1@example.com<br>password: Password1                                                                                                                                            | Returns to home page<br>Login/Register replaced with Logout                                                                                                                                                                                                                                    | Same as expected<br/>result. |       |
+|            | Login           | email: user1@example.com<br>password:                                                                                                                                                      | Displays error as no password provided                                                                                                                                                                                                                                                         | Same as expected<br/>result. |       |
+|            | Login           | email: <br>password: Password1                                                                                                                                                             | Displays an error as no email provided                                                                                                                                                                                                                                                         | Same as expected<br/>result. |       |
+|            | -----------     |                                                                                                                                                                                            |                                                                                                                                                                                                                                                                                                |                              |       |
+|            | Register        | Given Name: Jack<br/>Family Name: Smith<br/>Nickname: <br/>Email: jacksmith@example.com<br/>City: <br/>State: <br/>Country: <br/>Password: password1234<br/>Confirm Password: password1234 | Returns to home page<br/>Login/Register replaced with Logout.<br/>Nickname is replaced with Given Name.<br/>City, state, country will be filled with UNKNOWN by default.                                                                                                                       | Same as expected<br/>result. |       |
+|            | Register        | Given Name: <br/>Family Name: Smith<br/>Nickname: <br/>Email: <br/>City: <br/>State: <br/>Country: <br/>Password: <br/>Confirm Password:                                                   | Displays an error for given name, email, and password since not provided.                                                                                                                                                                                                                      | Same as expected<br/>result. |       |
+|            | -----------     |                                                                                                                                                                                            |                                                                                                                                                                                                                                                                                                |                              |       |
+|            | Logout          |                                                                                                                                                                                            | Logs user out and returns to login page.                                                                                                                                                                                                                                                       | Same as expected<br/>result. |       |
+| --------   | -----------     |                                                                                                                                                                                            |                                                                                                                                                                                                                                                                                                |                              |       |
+| Jokes      | Read Joke       |                                                                                                                                                                                            | Shows detailed information of joke.<br/>User is able to manage joke if user is reading own joke.                                                                                                                                                                                               | Same as expected<br/>result. |       |
+|            | Add Joke        | Title: Hello<br/>Author: Jack Smith<br/>Description: Testing testing 123<br/>Category: Unknown<br/>Tags: joke,pun                                                                          | Returns to Jokes page, with newly added joke visible on page.                                                                                                                                                                                                                                  | Same as expected<br/>result. |       |
+|            | Add Joke        | Title: <br/>Author: Jack Smith<br/>Description: <br/>Category: Unknown<br/>Tags:                                                                                                           | Displays an error for title, description, and tags since not provided.                                                                                                                                                                                                                         | Same as expected<br/>result. |       |
+|            | Add Joke        | Title: Hello<br/>Author: Jack Smith<br/>Description: This is not a drill<br/>Category: Unknown<br/>Tags: joke,pun                                                                          | Displays error because joke titled 'Hello' is a duplicate in the system.                                                                                                                                                                                                                       | Same as expected<br/>result. |       |
+|            | Edit Joke       | Title: Hello<br/>Author: Jack Smith<br/>Description: Testing testing 123<br/>Category: Unknown<br/>Tags: joke,pun                                                                          | Returns to Jokes page, with updated joke visible on page.                                                                                                                                                                                                                                      | Same as expected<br/>result. |       |
+|            | Edit Joke       | Title: <br/>Author: Jack Smith<br/>Description: <br/>Category: Unknown<br/>Tags:                                                                                                           | Displays an error for title, description, and tags since not provided.                                                                                                                                                                                                                         | Same as expected<br/>result. |       |                                                                                                                                                                                             
+|            | Edit Joke       | Title: Hello<br/>Author: Jack Smith<br/>Description: Testing testing 123<br/>Category: Unknown<br/>Tags: joke,pun                                                                          | Displays an error because joke titled 'Hello' is a duplicate in the system.                                                                                                                                                                                                                    | Same as expected<br/>result. |       |
+|            | Delete Joke     |                                                                                                                                                                                            | Shows a pop-up that confirms the deletion of the joke from the system.<br/>If user clicks on 'Confirm' then the joke is deleted from the system and the user is directed to the Jokes page.<br/>If the user clicks on 'Cancel' then the pop-up closes and joke still remains.                  | Same as expected<br/>result. |       |
+|            | Search Joke     | Search joke: a                                                                                                                                                                             | Filters out jokes that contain 'a' in the joke body / description.                                                                                                                                                                                                                             | Same as expected<br/>result. |       |
+| --------   | -----------     |                                                                                                                                                                                            |                                                                                                                                                                                                                                                                                                |                              |       |
+| Categories | Read Category   |                                                                                                                                                                                            | Shows detailed information of category.<br/>User able to manage category if user is reading own category.                                                                                                                                                                                      | Same as expected<br/>result. |       |
+|            | Add Category    | Title: geekers                                                                                                                                                                             | Returns to Categories page, with newly added category visible to page.                                                                                                                                                                                                                         | Same as expected<br/>result. |       |
+|            | Add Category    | Title:                                                                                                                                                                                     | Displays an error as no category title provided.                                                                                                                                                                                                                                               | Same as expected<br/>result. |       |
+|            | Add Category    | Title: geekers                                                                                                                                                                             | Displays an error since geekers is a duplicate in the system.                                                                                                                                                                                                                                  | Same as expected<br/>result. |       |
+|            | Edit Category   | Title: geekerz                                                                                                                                                                             | Returns to Categories page, with newly updated category visible to page.                                                                                                                                                                                                                       | Same as expected<br/>result. |       |
+|            | Edit Category   | Title:                                                                                                                                                                                     | Displays an error as no category title provided.                                                                                                                                                                                                                                               |                              |       |
+|            | Delete Category |                                                                                                                                                                                            | Shows a pop-up that confirms the deletion of the category from the system.<br/>If user clicks on 'Confirm' then the category is deleted from the system and the user is directed to the Categories page.<br/>If the user clicks on 'Cancel' then the pop-up closes and category still remains. | Same as expected<br/>result. |       |
+|            | Search Category | Search category: a                                                                                                                                                                         | Filters out categories that contain 'a' in the category title.                                                                                                                                                                                                                                 |                              |       |                                                                                                                                                                                                                                                                                                |                              |       |
+
+
+
+
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -180,7 +337,16 @@ corporate or other materials both digital and non-digital.
 
 ## References & Further Study
 
-- TODO: Add relevant references
+- Font Awesome. (n.d.). Fontawesome.com. https://fontawesome.com
+- PHP: Hypertext Preprocessor. (n.d.). www.php.net. https://php.net
+- TailwindCSS. (2023). Tailwind CSS - Rapidly build modern websites
+  without ever leaving your HTML. Tailwindcss.com. https://tailwindcss.com/
+- JetBrains (2019). PhpStorm. [online] JetBrains. Available
+  at: https://www.jetbrains.com/phpstorm/.
+- html-to-markdown: Convert HTML to Markdown with PHP. (n.d.).
+  GitHub. https://github.com/thephpleague/html-to-markdown
+- CommonMark: A strongly defined, highly compatible specification of Markdown. (2004). https://commonmark.org/
+- Workopia Project: PHP From Scratch. Brad Traversy. (2023). https://github.com/bradtraversy/workopia-php
 
 
 
