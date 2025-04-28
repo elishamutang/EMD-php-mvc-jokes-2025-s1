@@ -53,8 +53,6 @@ by [Adrian Gould](https://adygcode.github.io/) & [North Metropolitan TAFE](https
 
 ## Table of Contents
 
-TO DO: Add extra, or update the contents as needed, then remove this line.
-
 - [Description](#description)
 - [Definitions](#definitions)
 - [Installation](#installation)
