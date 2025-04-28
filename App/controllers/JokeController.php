@@ -353,7 +353,9 @@ class JokeController
         // Get category id
         $category_id = $this->db->query("SELECT id FROM categories WHERE name = :name", ['name' => $category])->fetch();
 
-        // Transform joke body back to HTML and subsequently to its HTML entities to store in DB.
+        /* Transform joke body back to HTML and subsequently to its HTML entities to store in DB.
+        *  ENT_COMPAT flag will convert double-quotes and leave single-quotes alone.
+        */
         $markdown_converter = new CommonMarkConverter();
         $body = htmlentities($markdown_converter->convert($body)->getContent(), ENT_COMPAT);
 
